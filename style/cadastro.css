@@ -1,0 +1,142 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #e0e0de;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+section {
+    padding: 2%;
+}
+
+.conteudo {
+    flex: 1 0 auto;
+    display: flex;
+}
+.rodape {
+    flex-shrink: 0;
+}
+
+header {
+    background-color: #FFCF00;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+.container .div-container {
+    width: 25%;
+    display: flex;
+    align-items: center;
+}
+
+.img-logo {
+    width: 30%;
+}
+
+.info-esquerda {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+}
+
+.info-esquerda h2{
+    margin-right: 20%;
+}
+h2 {
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 4%;
+}
+.box-login{
+    background-color: #FFCF00;
+    width: 80%;
+    border-radius: 3%;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 5%;
+}
+h3 {
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 7%;
+    font-size: 140%;
+}
+label {
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 2%;
+    font-weight: bold;
+}
+input{
+    background-color: transparent;
+    border-color: black;
+    font-size: 18px;
+    padding: 5px;
+    margin-top: 2%;
+    margin-bottom: 7%;
+    width: 25rem;
+}
+select {
+    padding: 1%;
+    font-size: 16px;
+    margin-top: 2%;
+    margin-bottom: 7%;
+}
+button {
+    width: 75%;
+    border-radius: 5%;
+    margin-top: 5%;
+    font-size: 110%;
+    cursor: pointer;
+    border: none;
+}
+.button-left {
+    padding: 4%;
+    background-color: #e0e0de;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+.info-direita {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.box-info-direita{
+    width: 65%;
+    height: 85%;
+    padding-left: 5%;
+    padding-top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 5%;
+    justify-content: center;
+}
+p{
+    font-size: 18px;
+    margin: 3% 0;
+}
+
+footer{
+    margin-top: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.copy {
+    color: rgb(117, 117, 117);
+}
