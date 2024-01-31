@@ -320,6 +320,7 @@ nav{
     border: none;
     margin: 2% 0;
     font-family: 'Roboto', sans-serif;
+    cursor: pointer;
 }
 .descricao {
     margin: 3% 0;

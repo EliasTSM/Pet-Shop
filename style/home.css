@@ -21,7 +21,14 @@ section {
 h3 {
     font-family: 'Roboto', sans-serif;
 }
-
+.anuncio {
+    display: flex;
+    justify-content: center;
+}
+.img-anuncio {
+    width: 90%;
+    margin: 1% 0;
+}
 .cards {
     display: flex;
     justify-content: space-between;
@@ -39,6 +46,7 @@ h3 {
     display: flex;  
     flex-direction: column; 
     align-items: center;
+    cursor: pointer;
 }
 
 .img-card {
