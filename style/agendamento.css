@@ -1,0 +1,314 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #e0e0de;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+section {
+    padding: 2%;
+}
+
+.conteudo {
+    flex: 1 0 auto;
+    display: flex;
+}
+.rodape {
+    flex-shrink: 0;
+}
+
+header {
+    background-color: #FFCF00;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+.container .div-container {
+    width: 25%;
+    display: flex;
+    align-items: center;
+}
+
+.img-logo {
+    width: 30%;
+}
+
+.search-box{
+    background-color: white;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 16px;
+    width: 350px;
+    height: 40px;
+}
+.search-box input{
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    color: black;
+    padding: 5px;
+}
+.search-box input:focus-visible {
+    outline: none;
+}
+
+.login {
+    justify-content: end;
+    padding: 15px;
+    margin-right: 30px;
+}
+.login a {
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+nav{
+    background-color: #F5F0F0;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 5px 5px #313b4580;
+}
+.menu > li, .menu > a {
+    display: inline-block;
+}
+.menu li {
+    position: relative;
+    list-style-type: none;
+}
+.menu a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 18px 3.5rem;
+    transition: background-color .22s ease, color .22s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 18px;
+}
+
+.menu .inicio:hover {
+    border-bottom: 3px solid black;
+}
+.menu .cachorro:hover {
+    border-bottom: 3px solid #f1a517;
+    color: #f1a517;
+}
+.menu .gato:hover {
+    border-bottom: 3px solid #313B45;
+    color: #313B45;
+}
+.menu .passaro:hover {
+    border-bottom: 3px solid #6EC7EA;
+    color: #6EC7EA;
+}
+.menu .servico:hover {
+    border-bottom: 3px solid #FF4D55;
+    color: #FF4D55;
+}
+.menu .promocao:hover {
+    border-bottom: 3px solid #fdcf01;
+    color: #fdcf01;
+}
+
+.submenu-cachorro a:hover {
+    background-color: rgb(241, 165, 23, 0.5);
+    border-radius: 20px;
+}
+.submenu-gato a:hover {
+    background-color: rgb(49, 59, 69, 0.5);
+    border-radius: 20px;
+}
+.submenu-outros a:hover {
+    background-color: rgb(110, 199, 234, 0.5);
+    border-radius: 20px;
+}
+
+.img-menu {
+    display: none;
+}
+.menu .inicio:hover > .img-menu {
+    display: block;
+    animation: slideup .3s ease;
+    padding-right: 10px;
+    width: 35px;
+}
+.menu .cachorro:hover > .img-menu {
+    display: block;
+    animation: slideup .3s ease;
+    padding-right: 10px;
+    width: 42px;
+}
+.menu .gato:hover > .img-menu {
+    display: block;
+    animation: slideup .3s ease;
+    padding-right: 10px;
+    width: 35px;
+}
+.menu .passaro:hover > .img-menu {
+    display: block;
+    animation: slideup .3s ease;
+    padding-right: 10px;
+    width: 35px;
+}
+.menu .servico:hover > .img-menu {
+    display: block;
+    animation: slideup .3s ease;
+    padding-right: 10px;
+    width: 45px;
+}
+.menu .promocao:hover > .img-menu {
+    display: block;
+    animation: slideup .3s ease;
+    padding-right: 10px;
+    width: 45px;
+}
+
+.menu a:hover > .img-menu {
+    display: block;
+    animation: slideup .3s ease;
+    padding-right: 10px;
+    width: 20px;
+}
+
+
+.submenu {
+    position: absolute;
+    background-color: #F5F0F0;
+    width: 120%;
+    left: 0;
+    display: none;
+}
+
+
+.submenu2 {
+    position: absolute;
+    left: 100%;
+    width: 100%;
+    top: 0;
+    background-color: #F5F0F0;
+    display: none;
+}
+
+.menu li:hover > .submenu {
+    display: block;
+    animation: slideup .3s ease;
+}
+
+.submenu li:hover > .submenu2 {
+    display: block;
+    animation: slideleft .3s ease;
+}
+
+.info-esquerda {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+}
+
+.info-esquerda h2{
+    margin-right: 20%;
+}
+h2 {
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 4%;
+}
+.box-login{
+    background-color: #FFCF00;
+    width: 80%;
+    height: 95%;
+    border-radius: 3%;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 5%;
+}
+h3 {
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 7%;
+    font-size: 140%;
+}
+label {
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 2%;
+    font-weight: bold;
+}
+input{
+    background-color: transparent;
+    border-color: black;
+    font-size: 18px;
+    padding: 5px;
+    margin-top: 2%;
+    margin-bottom: 7%;
+    width: 25rem;
+}
+select {
+    padding: 1%;
+    font-size: 16px;
+    margin-top: 2%;
+    margin-bottom: 7%;
+}
+button {
+    width: 75%;
+    border-radius: 5%;
+    margin-top: 5%;
+    font-size: 110%;
+    cursor: pointer;
+    border: none;
+}
+.button-left {
+    padding: 4%;
+    background-color: #FFCF00;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+.info-direita {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.box-info-direita{
+    width: 65%;
+    padding-left: 5%;
+    padding-top: 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 3%;
+    justify-content: center;
+}
+p{
+    font-size: 18px;
+    margin: 3% 0;
+}
+
+footer{
+    margin-top: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.copy {
+    color: rgb(117, 117, 117);
+}

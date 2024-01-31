@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pet Shop</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Página web de pet shop">
+        <link rel="shortcut icon" type="image/jpg" href="image/logo.png"/>
+        <link rel="stylesheet" href="style/compra.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <div class="div-container">
+                    <img class="img-logo" src="image/logo.png" alt="Logo tipo do petshop">
+                </div>
+                <div class="div-container">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input class="search-txt" type="text" name="" placeholder="O que seu pet precisa?">
+                    </div>
+                </div>
+                <div class="div-container login">
+                    <a href="#"> Entrar | Cadastrar</a>
+                </div>
+            </div>
+            <nav>
+                <ul class="menu">
+                    <li><a class="inicio" href="#"><img class="img-menu" src="image/inicio.png" alt="imagem menu">Inicio</a></li>
+                    <li><a class="cachorro" href="#"><img class="img-menu" src="image/cachorro.png" alt="imagem cachorro">Cachorro</a>
+                        <ul class="submenu submenu-cachorro">
+                            <li><a href="#">Ração</a></li>
+                            <li><a href="#">Acessórios</a></li>
+                            <li><a href="#">Medicação</a></li>
+                            <li><a href="#">Higiene</a></li>
+                            <li><a href="#">Brinquedos</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="gato" href="#"><img class="img-menu" src="image/gato.png" alt="imagem gato">Gato</a>
+                        <ul class="submenu submenu-gato">
+                            <li><a href="#">Ração</a></li>
+                            <li><a href="#">Acessórios</a></li>
+                            <li><a href="#">Medicação</a></li>
+                            <li><a href="#">Higiene</a></li>
+                            <li><a href="#">Brinquedos</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="passaro" href="#"><img class="img-menu" src="image/passaro.png" alt="imagem pássaro">Outros Pets</a>
+                        <ul class="submenu submenu-outros">
+                            <li><a href="#">Peixe</a>
+                                <ul class="submenu2">
+                                    <li><a href="#">Ração</a></li>
+                                    <li><a href="#">Acessórios</a></li>
+                                    <li><a href="#">Medicação</a></li>
+                                    <li><a href="#">Higiene</a></li>
+                                    <li><a href="#">Brinquedos</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Hamster</a>
+                                <ul class="submenu2">
+                                    <li><a href="#">Ração</a></li>
+                                    <li><a href="#">Acessórios</a></li>
+                                    <li><a href="#">Medicação</a></li>
+                                    <li><a href="#">Higiene</a></li>
+                                    <li><a href="#">Brinquedos</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Pássaro</a>
+                                <ul class="submenu2">
+                                    <li><a href="#">Ração</a></li>
+                                    <li><a href="#">Acessórios</a></li>
+                                    <li><a href="#">Medicação</a></li>
+                                    <li><a href="#">Higiene</a></li>
+                                    <li><a href="#">Brinquedos</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Porco da India</a>
+                                <ul class="submenu2">
+                                    <li><a href="#">Ração</a></li>
+                                    <li><a href="#">Acessórios</a></li>
+                                    <li><a href="#">Medicação</a></li>
+                                    <li><a href="#">Higiene</a></li>
+                                    <li><a href="#">Brinquedos</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a class="servico" href="#"><img class="img-menu" src="image/servico.png" alt="imagem coração">Serviços</a></li>
+                    <li><a class="promocao" href="#"><img class="img-menu" src="image/promocao.png" alt="imagem desconto">Promoções</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="conteudo">
+            <div class="produto">
+                <div class="produto-direita">
+                    <img class="img-produto" src="image/racao.png" alt="imagem desconto">
+                </div>
+                <div class="produto-esquerda">
+                    <h4 class="nome-produto">Ração Hills Science Diet para Cães...</h4>
+                    <p class="preco-produto">R$ 479,99</p>
+                    <p class="divisao-produto">ou 5X de 96,00</p>
+                    <label class="quantidade-produto" for="quantidade">Quantidade</label>
+                    <div class="contador">
+                        <button class="btn-contador">-</button>
+                        <input class="input-contador" type="text" id="valor" name="valor" value="1">
+                        <button class="btn-contador">+</button>
+                    </div>
+                    <button class="btn-comprar">Comprar</button>
+                </div>
+            </div>
+            <div class="descricao">
+                <p>Descrição do produto com todas as informações necessaárias.</p>
+            </div>
+            <h3>Produtos Recomendados</h3>
+            <div class="cards">
+                <div class="card">
+                    <img class="img-card" src="image/racao.png" alt="imagem desconto">
+                    <h4>Ração Hills Science Diet para Cães...</h4>
+                    <p class="preco">R$ 479,99</p>
+                    <p class="divisao">ou 5X de 96,00</p>
+                </div>
+                <div class="card">
+                    <img class="img-card" src="image/racao.png" alt="imagem desconto">
+                    <h4>Ração Hills Science Diet para Cães...</h4>
+                    <p class="preco">R$ 479,99</p>
+                    <p class="divisao">ou 5X de 96,00</p>
+                </div>
+                <div class="card">
+                    <img class="img-card" src="image/racao.png" alt="imagem desconto">
+                    <h4>Ração Hills Science Diet para Cães...</h4>
+                    <p class="preco">R$ 479,99</p>
+                    <p class="divisao">ou 5X de 96,00</p>
+                </div>
+                <div class="card">
+                    <img class="img-card" src="image/racao.png" alt="imagem desconto">
+                    <h4>Ração Hills Science Diet para Cães...</h4>
+                    <p class="preco">R$ 479,99</p>
+                    <p class="divisao">ou 5X de 96,00</p>
+                </div>
+                <div class="card">
+                    <img class="img-card" src="image/racao.png" alt="imagem desconto">
+                    <h4>Ração Hills Science Diet para Cães...</h4>
+                    <p class="preco">R$ 479,99</p>
+                    <p class="divisao">ou 5X de 96,00</p>
+                </div>
+                <div class="card">
+                    <img class="img-card" src="image/racao.png" alt="imagem desconto">
+                    <h4>Ração Hills Science Diet para Cães...</h4>
+                    <p class="preco">R$ 479,99</p>
+                    <p class="divisao">ou 5X de 96,00</p>
+                </div>               
+            </div>
+            <a href="#"><img class="img-whatsapp" src="image/whatsapp.png" alt="imagem whatsapp"></a>
+        </section>
+        <footer class="rodape">
+            <div class="redes">
+                <a href="#"><img class="img-redes" src="image/twitter.png" alt="imagem twitter"></a>
+                <a href="#"><img class="img-redes" src="image/instagram.png" alt="imagem instagram"></a>
+                <a href="#"><img class="img-redes" src="image/facebook.png" alt="imagem facebook"></a>
+            </div>
+            <div class="copy">Copyright 2024 <i class="fa-solid fa-copyright" style="color: #000000;"></i></div>
+        </footer>
+    </body>
+</html>
