@@ -21,14 +21,7 @@ section {
 h3 {
     font-family: 'Roboto', sans-serif;
 }
-.anuncio {
-    display: flex;
-    justify-content: center;
-}
-.img-anuncio {
-    width: 90%;
-    margin: 1% 0;
-}
+
 .cards {
     display: flex;
     justify-content: space-between;
@@ -46,7 +39,6 @@ h3 {
     display: flex;  
     flex-direction: column; 
     align-items: center;
-    cursor: pointer;
 }
 
 .img-card {
@@ -266,6 +258,74 @@ nav{
 .submenu li:hover > .submenu2 {
     display: block;
     animation: slideleft .3s ease;
+}
+
+.produto {
+    display: flex;
+    margin: 1.5% 0;
+}
+.produto-direita {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img-produto {
+    width: 55%;
+}
+
+.produto-esquerda {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.nome-produto{
+    font-size: 30px;
+    margin-bottom: 2%;
+    font-family: 'Roboto', sans-serif;
+}
+.preco-produto {
+    font-size: 26px;
+    margin-bottom: 1%;
+    font-weight: 900;
+    font-family: 'Roboto', sans-serif;
+}
+.divisao-produto {
+    font-size: 22px;
+    margin-bottom: 3%;
+    font-family: 'Roboto', sans-serif;
+}
+.quantidade-produto {
+    font-size: 20px;
+}
+.contador {
+    margin: 2% 0;
+}
+.btn-contador {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+.input-contador {
+    width: 30px;
+    height: 30px;
+}
+.btn-comprar {
+    width: 50%;
+    height: 40px;
+    font-size: 18px;
+    background-color: black;
+    color: #F5F0F0;
+    border: none;
+    margin: 2% 0;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+}
+.descricao {
+    margin: 3% 0;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .img-whatsapp{

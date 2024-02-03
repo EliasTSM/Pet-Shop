@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="description" content="Página web de pet shop">
         <link rel="shortcut icon" type="image/jpg" href="../static/image/logo.png"/>
-        <link rel="stylesheet" href="../static/style/home.css">
+        <link rel="stylesheet" href="../static/style/agendamento.css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,13 +18,10 @@
                     <img class="img-logo" src="../static/image/logo.png" alt="Logo tipo do petshop">
                 </div>
                 <div class="div-container">
-                    <div class="search-box">
-                        <i class="fas fa-search"></i>
-                        <input class="search-txt" type="text" name="" placeholder="O que seu pet precisa?">
-                    </div>
+                    
                 </div>
                 <div class="div-container login">
-                    <a href="#"> Entrar | Cadastrar</a>
+                    <a href="#"> Olá, Elias</a>
                 </div>
             </div>
             <nav>
@@ -94,64 +91,63 @@
             </nav>
         </header>
         <section class="conteudo">
-            <div class="anuncio">
-                <img class="img-anuncio" src="image/Anuncio.png" alt="imagem desconto">
+            <div class="info-esquerda">
+                <div class="box-login">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo">
+                    <label for="email">E-mail</label>
+                    <input type="text" id="email" name="email" placeholder="Digite seu email">
+                    <label for="celular">Celular</label>
+                    <input type="tel" id="celular" name="celular" placeholder="DDD + Celular">
+                    <label for="endereco">Endereço</label>
+                    <input type="text" id="endereco" name="endereco" placeholder="Digite seu endereço">
+                </div>
             </div>
-            <h3>Produtos Recomendados</h3>
-            <div class="cards">
-                <div class="card">
-                    <img class="img-card" src="../static/image/racao.png" alt="imagem desconto">
-                    <h4>Ração Hills Science Diet para Cães...</h4>
-                    <p class="preco">R$ 479,99</p>
-                    <p class="divisao">ou 5X de 96,00</p>
+            <div class="info-direita">
+                <div class="box-info-direita">
+                    <h3>Agendamento</h3>
+                    <form action="">
+                        <label for="pet">Qual pet será atendido?</label>
+                        <select id="pet" name="pet">
+                            <option>Selecione uma opção</option>
+                            <option>Max</option>
+                        </select>
+                        <label for="nome">Escolha um especialista:</label>
+                        <select id="pet" name="pet">
+                            <option>Selecione uma opção</option>
+                            <option>Elias</option>
+                        </select>
+                        <label for="nome">Pra quando você gostaria de agendar?</label>
+                        <select id="pet" name="pet">
+                            <option>Selecione uma opção</option>
+                            <option>Segunda - 05/02</option>
+                            <option>Terça - 06/02</option>
+                            <option>Quarta - 07/02</option>
+                        </select>
+                        <label for="nome">Escolha um horário:</label>
+                        <select id="pet" name="pet">
+                            <option>Selecione uma opção</option>
+                            <option>10:00</option>
+                            <option>13:00</option>
+                            <option>15:00</option>
+                        </select>
+                        <label for="nome">Qual a forma de Pagamento?</label>
+                        <select id="pet" name="pet">
+                            <option>Selecione uma opção</option>
+                            <option>Pix</option>
+                            <option>Cartão</option>
+                            <option>Boleto</option>
+                            <option>Dinheiro</option>
+                        </select>
+                    </form>
+                    <h4>Banho e tosa - Gato</h4>
+                    <h5>Valor R$ 100,00</h5>
+                    <button class="button-left">Agendar</button>
                 </div>
-                <div class="card">
-                    <img class="img-card" src="../static/image/racao.png" alt="imagem desconto">
-                    <h4>Ração Hills Science Diet para Cães...</h4>
-                    <p class="preco">R$ 479,99</p>
-                    <p class="divisao">ou 5X de 96,00</p>
-                </div>
-                <div class="card">
-                    <img class="img-card" src="../static/image/racao.png" alt="imagem desconto">
-                    <h4>Ração Hills Science Diet para Cães...</h4>
-                    <p class="preco">R$ 479,99</p>
-                    <p class="divisao">ou 5X de 96,00</p>
-                </div>
-                <div class="card">
-                    <img class="img-card" src="../static/image/racao.png" alt="imagem desconto">
-                    <h4>Ração Hills Science Diet para Cães...</h4>
-                    <p class="preco">R$ 479,99</p>
-                    <p class="divisao">ou 5X de 96,00</p>
-                </div>
-                <div class="card">
-                    <img class="img-card" src="../static/image/racao.png" alt="imagem desconto">
-                    <h4>Ração Hills Science Diet para Cães...</h4>
-                    <p class="preco">R$ 479,99</p>
-                    <p class="divisao">ou 5X de 96,00</p>
-                </div>
-                <div class="card">
-                    <img class="img-card" src="../static/image/racao.png" alt="imagem desconto">
-                    <h4>Ração Hills Science Diet para Cães...</h4>
-                    <p class="preco">R$ 479,99</p>
-                    <p class="divisao">ou 5X de 96,00</p>
-                </div>
-                <div class="card">
-                    <img class="img-card" src="../static/image/racao.png" alt="imagem desconto">
-                    <h4>Ração Hills Science Diet para Cães...</h4>
-                    <p class="preco">R$ 479,99</p>
-                    <p class="divisao">ou 5X de 96,00</p>
-                </div>
-                
             </div>
-            <a href="#"><img class="img-whatsapp" src="../static/image/whatsapp.png" alt="imagem whatsapp"></a>
         </section>
         <footer class="rodape">
-            <div class="redes">
-                <a href="#"><img class="img-redes" src="../static/image/twitter.png" alt="imagem twitter"></a>
-                <a href="#"><img class="img-redes" src="../static/image/instagram.png" alt="imagem instagram"></a>
-                <a href="#"><img class="img-redes" src="../static/image/facebook.png" alt="imagem facebook"></a>
-            </div>
-            <div class="copy">Copyright 2024 <i class="fa-solid fa-copyright" style="color: #000000;"></i></div>
+            <div class="copy">Copyright 2024 <i class="fa-solid fa-copyright" style="color: rgb(117, 117, 117);"></i></div>
         </footer>
     </body>
 </html>

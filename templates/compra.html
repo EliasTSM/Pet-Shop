@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="description" content="Página web de pet shop">
         <link rel="shortcut icon" type="image/jpg" href="../static/image/logo.png"/>
-        <link rel="stylesheet" href="../static/style/home.css">
+        <link rel="stylesheet" href="../static/style/compra.css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -94,8 +94,25 @@
             </nav>
         </header>
         <section class="conteudo">
-            <div class="anuncio">
-                <img class="img-anuncio" src="image/Anuncio.png" alt="imagem desconto">
+            <div class="produto">
+                <div class="produto-direita">
+                    <img class="img-produto" src="../static/image/racao.png" alt="imagem desconto">
+                </div>
+                <div class="produto-esquerda">
+                    <h4 class="nome-produto">Ração Hills Science Diet para Cães...</h4>
+                    <p class="preco-produto">R$ 479,99</p>
+                    <p class="divisao-produto">ou 5X de 96,00</p>
+                    <label class="quantidade-produto" for="quantidade">Quantidade</label>
+                    <div class="contador">
+                        <button class="btn-contador">-</button>
+                        <input class="input-contador" type="text" id="valor" name="valor" value="1">
+                        <button class="btn-contador">+</button>
+                    </div>
+                    <button class="btn-comprar">Comprar</button>
+                </div>
+            </div>
+            <div class="descricao">
+                <p>Descrição do produto com todas as informações necessaárias.</p>
             </div>
             <h3>Produtos Recomendados</h3>
             <div class="cards">
@@ -134,14 +151,7 @@
                     <h4>Ração Hills Science Diet para Cães...</h4>
                     <p class="preco">R$ 479,99</p>
                     <p class="divisao">ou 5X de 96,00</p>
-                </div>
-                <div class="card">
-                    <img class="img-card" src="../static/image/racao.png" alt="imagem desconto">
-                    <h4>Ração Hills Science Diet para Cães...</h4>
-                    <p class="preco">R$ 479,99</p>
-                    <p class="divisao">ou 5X de 96,00</p>
-                </div>
-                
+                </div>               
             </div>
             <a href="#"><img class="img-whatsapp" src="../static/image/whatsapp.png" alt="imagem whatsapp"></a>
         </section>
