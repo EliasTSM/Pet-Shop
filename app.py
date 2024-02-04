@@ -65,6 +65,14 @@ def cadastrar_usuario():
 def promocao():
     return render_template ('promocao.html')
 
+@app.route("/agendamento")
+def agendamento():
+    return render_template ('agendamento.html')
+
+@app.route("/compra")
+def compra():
+    return render_template ('compra.html')
+
 app.run(debug=True)
 
 
