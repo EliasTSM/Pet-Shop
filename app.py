@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request, url_for, redirect
 import rep
 # tabela animal: 
 # 1 = cachorro
@@ -40,9 +40,21 @@ def produtos(animal,classe):
 def servicos():
     return render_template ('servicos.html')
 
-@app.route("/login")
+@app.route("/login", methods = ["POST", "GET"])
 def login():
-    return render_template ('login.html')
+    if request.method == "POST":
+        email = request.form["email"]
+        senha = request.form["senha"]
+        msg = rep.login(email,senha) 
+        print(msg)
+        if msg == 1:
+            return render_template("index.html")
+        else:
+            return render_template("login.html")
+    
+
+    return render_template("login.html")
+    
 
 @app.route("/cadastro", methods=["GET", "POST"])
 def cadastrar_usuario():
@@ -55,9 +67,9 @@ def cadastrar_usuario():
         senha = request.form["senha"]
         pet = request.form["pet"]
         nome_pet = request.form["nomePet"]
-        
-        mensagem = rep.realizar_cadastro(nome, email, cpf, celular, endereco, senha, pet, nome_pet)
-        return render_template("resultado_cadastro.html", mensagem=mensagem)
+        print(nome,email,cpf,celular)
+        rep.realizar_cadastro(nome, email, cpf, celular, endereco, senha, pet, nome_pet)
+        return render_template("login.html")
     else:
         return render_template("cadastro.html")
 
