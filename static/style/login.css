@@ -125,6 +125,19 @@ p{
 .button-right {
     padding: 2%;
     background-color: #FFCF00;
+    text-decoration: none;
+    width: 75%;
+    height: 15%;
+    border-radius: 5%;
+    margin-top: 5%;
+    font-size: 110%;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-family: 'Roboto', sans-serif;
 }
 
 footer{
