@@ -16,7 +16,8 @@ import rep
 app = Flask(__name__)
 @app.route("/")
 def inicial():
-    return render_template ('index.html')
+    produtos = rep.produto("racao",1)
+    return render_template ('index.html', produtos=produtos)
 
 @app.route("/produtos/<animal>/<classe>", methods = ["GET"])
 def produtos(animal,classe):
@@ -45,10 +46,11 @@ def login():
     if request.method == "POST":
         email = request.form["email"]
         senha = request.form["senha"]
-        msg = rep.login(email,senha) 
-        print(msg)
-        if msg == 1:
-            return render_template("index.html")
+        cliente = rep.login(email,senha) 
+        nomeCliente = cliente[0][1]
+        if len(cliente) != 0:
+            produtos = rep.produto("racao",1)
+            return render_template("index.html", user=nomeCliente, produtos=produtos)
         else:
             return render_template("login.html")
     

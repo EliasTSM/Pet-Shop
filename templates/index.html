@@ -24,7 +24,12 @@
                     </div>
                 </div>
                 <div class="div-container login">
+                    {% if user == undefined %}
                     <a href="/login"> Entrar | Cadastrar</a>
+                    {% endif %}
+                    {% if user != undefined %}
+                    <a href="#"> Olá, {{user}}</a>
+                    {% endif %}
                 </div>
             </div>
             <nav>
@@ -55,16 +60,12 @@
                                     <li><a href="/produtos/6/racao">Ração</a></li>
                                     <li><a href="/produtos/6/acessorio">Acessórios</a></li>
                                     <li><a href="/produtos/6/medicacao">Medicação</a></li>
-                                    <li><a href="/produtos/6/higienie">Higiene</a></li>
-                                    <li><a href="/produtos/6/brinquedos">Brinquedos</a></li>
                                 </ul>
                             </li>
                             <li><a href="#">Hamster</a>
                                 <ul class="submenu2">
                                     <li><a href="/produtos/3/racao">Ração</a></li>
                                     <li><a href="/produtos/3/acessorio">Acessórios</a></li>
-                                    <li><a href="/produtos/3/medicacao">Medicação</a></li>
-                                    <li><a href="/produtos/3/higienie">Higiene</a></li>
                                     <li><a href="/produtos/3/brinquedos">Brinquedos</a></li>
                                 </ul>
                             </li>
@@ -81,8 +82,6 @@
                                 <ul class="submenu2">
                                     <li><a href="/produtos/5/racao">Ração</a></li>
                                     <li><a href="/produtos/5/acessorio">Acessórios</a></li>
-                                    <li><a href="/produtos/5/medicacao">Medicação</a></li>
-                                    <li><a href="/produtos/5/higienie">Higiene</a></li>
                                     <li><a href="/produtos/5/brinquedos">Brinquedos</a></li>
                                 </ul>
                             </li>
@@ -99,49 +98,14 @@
             </div>
             <h3>Produtos Recomendados</h3>
             <div class="cards">
+                {% for id_produto, nome_produto, descricao_produto, valor_produto, quantidade_produto, id_animal, tipo_produto, imagem in produtos %}
                 <div class="card">
-                    <img class="img-card" src="../static/image/racao.png" alt="imagem desconto">
-                    <h4>Ração Hills Science Diet para Cães...</h4>
-                    <p class="preco">R$ 479,99</p>
-                    <p class="divisao">ou 5X de 96,00</p>
+                    <img class="img-card" src={{imagem}} alt="imagem desconto">
+                    <h4>{{nome_produto}}</h4>
+                    <p class="preco">R$ {{valor_produto}}</p>
+                    <p class="divisao"></p>
                 </div>
-                <div class="card">
-                    <img class="img-card" src="../static/image/racao.png" alt="imagem desconto">
-                    <h4>Ração Hills Science Diet para Cães...</h4>
-                    <p class="preco">R$ 479,99</p>
-                    <p class="divisao">ou 5X de 96,00</p>
-                </div>
-                <div class="card">
-                    <img class="img-card" src="../static/image/racao.png" alt="imagem desconto">
-                    <h4>Ração Hills Science Diet para Cães...</h4>
-                    <p class="preco">R$ 479,99</p>
-                    <p class="divisao">ou 5X de 96,00</p>
-                </div>
-                <div class="card">
-                    <img class="img-card" src="../static/image/racao.png" alt="imagem desconto">
-                    <h4>Ração Hills Science Diet para Cães...</h4>
-                    <p class="preco">R$ 479,99</p>
-                    <p class="divisao">ou 5X de 96,00</p>
-                </div>
-                <div class="card">
-                    <img class="img-card" src="../static/image/racao.png" alt="imagem desconto">
-                    <h4>Ração Hills Science Diet para Cães...</h4>
-                    <p class="preco">R$ 479,99</p>
-                    <p class="divisao">ou 5X de 96,00</p>
-                </div>
-                <div class="card">
-                    <img class="img-card" src="../static/image/racao.png" alt="imagem desconto">
-                    <h4>Ração Hills Science Diet para Cães...</h4>
-                    <p class="preco">R$ 479,99</p>
-                    <p class="divisao">ou 5X de 96,00</p>
-                </div>
-                <div class="card">
-                    <img class="img-card" src="../static/image/racao.png" alt="imagem desconto">
-                    <h4>Ração Hills Science Diet para Cães...</h4>
-                    <p class="preco">R$ 479,99</p>
-                    <p class="divisao">ou 5X de 96,00</p>
-                </div>
-                
+                {% endfor %}                
             </div>
             <a href="#"><img class="img-whatsapp" src="../static/image/whatsapp.png" alt="imagem whatsapp"></a>
         </section>
@@ -153,5 +117,6 @@
             </div>
             <div class="copy">copyright 2024 <i class="fa-solid fa-copyright" style="color: #000000;"></i></div>
         </footer>
+        <script src="../static/js/home.js"></script>
     </body>
 </html>

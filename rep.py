@@ -64,13 +64,9 @@ def login(email,senha:int):
         cursor = conn.cursor()
         sql_select = f'SELECT * FROM humano WHERE email_humano = "{email}" AND senha = "{senha}"'
         cursor.execute(sql_select)
-        nomecliente = cursor.fetchall()
+        cliente = cursor.fetchall()
         conn.close()
-        if len(nomecliente) == 0:
-            msg = 0
-        else:
-            msg = 1
-        return msg
+        return cliente
     except:
         False
 
