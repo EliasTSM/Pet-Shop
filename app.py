@@ -16,26 +16,13 @@ import rep
 app = Flask(__name__)
 @app.route("/")
 def inicial():
-    produtos = rep.produto("racao",1)
+    produtos = rep.produto(1, "racao")
     return render_template ('index.html', produtos=produtos)
 
-@app.route("/produtos/<animal>/<classe>", methods = ["GET"])
-def produtos(animal,classe):
-    
-    produto = rep.produto(classe,animal)
-    
-    for produto in produto:
-    
-        id_produto, nome_produto, descricao_produto, valor_produto, quantidade_produto, id_animal, tipo_produto, imagem = produto
-        print(f"ID: {id_produto}")
-        print(f"Nome: {nome_produto}")
-        print(f"Descrição: {descricao_produto}")
-        print(f"Valor: R$ {valor_produto}")
-        print(f"Quantidade: {quantidade_produto}")
-        print(f"Tipo: {tipo_produto}")
-        print(f"Imagem: {imagem}")
-
-    return render_template('index.html', id_produto=id_produto,nome_produto=nome_produto,descricao_produto=descricao_produto,valor_produto=valor_produto,quantidade_produto=quantidade_produto,tipo_produto=tipo_produto,imagem=imagem)
+@app.route("/produtos/<classe>/<animal>", methods = ["GET"])
+def produtos(classe, animal):
+    produtos = rep.produto(animal, classe)
+    return render_template('index.html', produtos=produtos)
 
 @app.route("/servicos")
 def servicos():

@@ -242,10 +242,19 @@ h2 {
     margin-right: 5%;
     align-items: center;
     cursor: pointer;
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+}
+
+.banho-tosa-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .img-banho-tosa {
-    width: 70%;
-    margin: 5%;
+    width: 90%;
 }
 
 .veterinario{
@@ -253,22 +262,35 @@ h2 {
     width: 20%;
     height: 80%;
     border-radius: 3%;
-    padding: 5%;
+    padding: 3%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-right: 5%;
     align-items: center;
     cursor: pointer;
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
 }
+
+.veterinario-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .img-veterinario {
-    width: 70%;
-    margin: 5%;
+    width: 60%;
+    margin-bottom: 5%;
 }
+
 h3 {
+    text-decoration: none;
     font-family: 'Roboto', sans-serif;
     margin-bottom: 7%;
-    font-size: 140%;
+    font-size: 100%;
 }
 label {
     font-family: 'Roboto', sans-serif;

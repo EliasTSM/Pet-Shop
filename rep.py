@@ -34,7 +34,7 @@ def realizar_cadastro(nome, email, cpf, celular, endereco, senha, pet, nome_pet)
 
     return msg
 
-def produto(tipo_produto,id_animal:int):
+def produto(id_animal:int, tipo_produto):
     try:
         conn = sqlite3.connect('petshop.db')
         cursor = conn.cursor()
