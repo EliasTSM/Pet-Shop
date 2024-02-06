@@ -9,6 +9,18 @@ body {
     flex-direction: column;
     height: 100vh;
 }
+
+.user{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#logout {
+    font-size: 14px;
+    margin-top: 5%;
+}
 section {
     padding: 2%;
 }

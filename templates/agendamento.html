@@ -21,66 +21,69 @@
                     
                 </div>
                 <div class="div-container login">
-                    <a href="#"> Olá, Elias</a>
+                    <div class="user">
+                        <a href="#"> Olá, {{current_user.nome_humano}}</a>
+                        <a id="logout" href="/logout">Sair</a>
+                    </div>                   
                 </div>
             </div>
             <nav>
                 <ul class="menu">
-                    <li><a class="inicio" href="/"><img class="img-menu" src="../static/image/inicio.png" alt="imagem menu">Inicio</a></li>
-                    <li><a class="cachorro" href="#"><img class="img-menu" src="../static/image/cachorro.png" alt="imagem cachorro">Cachorro</a>
+                    <li><a class="inicio" href="/"><img class="img-menu" src="{{ url_for('static', filename='image/inicio.png')}}" alt="imagem menu">Inicio</a></li>
+                    <li><a class="cachorro" href="#"><img class="img-menu" src="{{ url_for('static', filename='image/cachorro.png')}}" alt="imagem cachorro">Cachorro</a>
                         <ul class="submenu submenu-cachorro">
-                            <li><a href="/produtos/1/racao">Ração</a></li>
-                            <li><a href="/produtos/1/acessorios">Acessórios</a></li>
-                            <li><a href="/produtos/1/medicacao">Medicação</a></li>
-                            <li><a href="/produtos/1/higienie">Higiene</a></li>
-                            <li><a href="/produtos/1/brinquedos">Brinquedos</a></li>
+                            <li><a href="/produtos/racao/1">Ração</a></li>
+                            <li><a href="/produtos/acessorios/1">Acessórios</a></li>
+                            <li><a href="/produtos/medicacao/1">Medicação</a></li>
+                            <li><a href="/produtos/higienie/1">Higiene</a></li>
+                            <li><a href="/produtos/brinquedos/1">Brinquedos</a></li>
                         </ul>
                     </li>
-                    <li><a class="gato" href="#"><img class="img-menu" src="../static/image/gato.png" alt="imagem gato">Gato</a>
+                    <li><a class="gato" href="#"><img class="img-menu" src="{{ url_for('static', filename='image/gato.png')}}" alt="imagem gato">Gato</a>
                         <ul class="submenu submenu-gato">
-                            <li><a href="/produtos/2/racao">Ração</a></li>
-                            <li><a href="/produtos/2/acessorio">Acessórios</a></li>
-                            <li><a href="/produtos/2/medicacao">Medicação</a></li>
-                            <li><a href="/produtos/2/higienie">Higiene</a></li>
-                            <li><a href="/produtos/2/brinquedos">Brinquedos</a></li>
+                            <li><a href="/produtos/racao/2">Ração</a></li>
+                            <li><a href="/produtos/acessorio/2">Acessórios</a></li>
+                            <li><a href="/produtos/medicacao/2">Medicação</a></li>
+                            <li><a href="/produtos/higienie/2">Higiene</a></li>
+                            <li><a href="/produtos/brinquedos/2">Brinquedos</a></li>
                         </ul>
                     </li>
-                    <li><a class="passaro" href="#"><img class="img-menu" src="../static/image/passaro.png" alt="imagem pássaro">Outros Pets</a>
+                    <li><a class="passaro" href="#"><img class="img-menu" src="{{ url_for('static', filename='image/passaro.png')}}" alt="imagem pássaro">Outros Pets</a>
                         <ul class="submenu submenu-outros">
                             <li><a href="#">Peixe</a>
                                 <ul class="submenu2">
-                                    <li><a href="/produtos/6/racao">Ração</a></li>
-                                    <li><a href="/produtos/6/acessorio">Acessórios</a></li>
-                                    <li><a href="/produtos/6/medicacao">Medicação</a></li>
+                                    <li><a href="/produtos/racao/6">Ração</a></li>
+                                    <li><a href="/produtos/acessorio/6">Acessórios</a></li>
+                                    <li><a href="/produtos/medicacao/6">Medicação</a></li>
                                 </ul>
                             </li>
                             <li><a href="#">Hamster</a>
                                 <ul class="submenu2">
-                                    <li><a href="/produtos/3/racao">Ração</a></li>
-                                    <li><a href="/produtos/3/acessorio">Acessórios</a></li>
-                                    <li><a href="/produtos/3/brinquedos">Brinquedos</a></li>
+                                    <li><a href="/produtos/racao/3">Ração</a></li>
+                                    <li><a href="/produtos/acessorio/3">Acessórios</a></li>
+                                    <li><a href="/produtos/brinquedos/3">Brinquedos</a></li>
                                 </ul>
                             </li>
                             <li><a href="#">Pássaro</a>
                                 <ul class="submenu2">
-                                    <li><a href="/produtos/4/racao">Ração</a></li>
-                                    <li><a href="/produtos/4/acessorio">Acessórios</a></li>
-                                    <li><a href="/produtos/4/medicacao">Medicação</a></li>
-                                    <li><a href="/produtos/4/higienie">Higiene</a></li>
-                                    <li><a href="/produtos/4/brinquedos">Brinquedos</a></li>
+                                    <li><a href="/produtos/racao/4">Ração</a></li>
+                                    <li><a href="/produtos/acessorio/4">Acessórios</a></li>
+                                    <li><a href="/produtos/medicacao/4">Medicação</a></li>
+                                    <li><a href="/produtos/higienie/4">Higiene</a></li>
+                                    <li><a href="/produtos/brinquedos/4">Brinquedos</a></li>
                                 </ul>
                             </li>
                             <li><a href="#">Porquinho da India</a>
                                 <ul class="submenu2">
-                                    <li><a href="/produtos/5/racao">Ração</a></li>
-                                    <li><a href="/produtos/5/acessorio">Acessórios</a></li>
-                                    <li><a href="/produtos/5/brinquedos">Brinquedos</a></li>
+                                    <li><a href="/produtos/racao/5">Ração</a></li>
+                                    <li><a href="/produtos/acessorio/5">Acessórios</a></li>
+                                    <li><a href="/produtos/brinquedos/5">Brinquedos</a></li>
                                 </ul>
                             </li>
                         </ul>
                     </li>
-                    <li><a class="servico" href="/servicos"><img class="img-menu" src="../static/image/servico.png" alt="imagem coração">Serviços</a></li>
-                    <li><a class="promocao" href="/promocao"><img class="img-menu" src="../static/image/promocao.png" alt="imagem desconto">Promoções</a></li>
+                    <li><a class="servico" href="/servicos"><img class="img-menu" src="{{ url_for('static', filename='image/servico.png')}}" alt="imagem coração">Serviços</a></li>
+                    <li><a class="promocao" href="/promocao"><img class="img-menu" src="{{ url_for('static', filename='image/promocao.png')}}" alt="imagem desconto">Promoções</a></li>
                 </ul>
             </nav>
         </header>
@@ -88,13 +91,13 @@
             <div class="info-esquerda">
                 <div class="box-login">
                     <label for="nome">Nome</label>
-                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo">
+                    <input type="text" id="nome" name="nome" value="{{current_user.nome_humano}}" placeholder="Digite seu nome completo">
                     <label for="email">E-mail</label>
-                    <input type="text" id="email" name="email" placeholder="Digite seu email">
+                    <input type="text" id="email" name="email" value="{{current_user.email_humano}}" placeholder="Digite seu email">
                     <label for="celular">Celular</label>
-                    <input type="tel" id="celular" name="celular" placeholder="DDD + Celular">
+                    <input type="tel" id="celular" name="celular" value="{{current_user.contato_humano}}" placeholder="DDD + Celular">
                     <label for="endereco">Endereço</label>
-                    <input type="text" id="endereco" name="endereco" placeholder="Digite seu endereço">
+                    <input type="text" id="endereco" name="endereco" value="{{current_user.endereco_humano}}" placeholder="Digite seu endereço">
                 </div>
             </div>
             <div class="info-direita">

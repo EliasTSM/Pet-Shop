@@ -70,6 +70,19 @@ def login(email,senha:int):
     except:
         False
 
+def verificacao(id):
+    try: 
+        conn = sqlite3.connect('petshop.db')
+        cursor = conn.cursor()
+        sql_select = f'SELECT * FROM humano WHERE id_humano = "{id}"'
+        cursor.execute(sql_select)
+        cliente = cursor.fetchall()
+        conn.close()
+        return cliente
+    except:
+        False
+
+
 def agendamento(data,horario,id_profissional,id_cliente,id_servico):
     try:
         conn = sqlite3.connect('petshop.db')

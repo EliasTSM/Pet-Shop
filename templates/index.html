@@ -24,11 +24,13 @@
                     </div>
                 </div>
                 <div class="div-container login">
-                    {% if user == undefined %}
-                    <a href="/login"> Entrar | Cadastrar</a>
-                    {% endif %}
-                    {% if user != undefined %}
-                    <a href="#"> Olá, {{user}}</a>
+                    {% if current_user.is_authenticated %}
+                    <div class="user">
+                        <a href="#"> Olá, {{current_user.nome_humano}}</a>
+                        <a id="logout" href="/logout">Sair</a>
+                    </div>
+                    {% else %}
+                    <a href="/login"> Entrar | Cadastrar</a>                    
                     {% endif %}
                 </div>
             </div>
@@ -100,7 +102,7 @@
             <div class="cards">
                 {% for id_produto, nome_produto, descricao_produto, valor_produto, quantidade_produto, id_animal, tipo_produto, imagem in produtos %}
                 <div class="card">
-                    <img class="img-card" src="{{ url_for('static', filename=imagem) }}" alt="imagem produto">
+                    <img class="img-card" src="{{ url_for('static', filename='image/' + imagem )}}" alt="imagem produto">
                     <h4>{{nome_produto}}</h4>
                     <p class="preco">R$ {{valor_produto}}</p>
                     <p class="divisao"></p>
