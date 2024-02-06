@@ -1,17 +1,5 @@
-from flask import Flask, render_template, request, url_for, redirect
+from flask import Flask, render_template, request, url_for, redirect, session
 import rep
-# tabela animal: 
-# 1 = cachorro
-# 2 = gato
-# 3 = hamster
-# 4 = passaro
-# 5 = porquinho
-# 6 = peixe
-
-# tabela produtos:
-# id_animal
-# tipo_produto
-# racao, acessorio, medicamento, higienie, brinquedo
 
 app = Flask(__name__)
 @app.route("/")
@@ -35,6 +23,7 @@ def login():
         senha = request.form["senha"]
         cliente = rep.login(email,senha) 
         nomeCliente = cliente[0][1]
+        session['user'] = nomeCliente
         if len(cliente) != 0:
             produtos = rep.produto("racao",1)
             return render_template("index.html", user=nomeCliente, produtos=produtos)
@@ -56,7 +45,6 @@ def cadastrar_usuario():
         senha = request.form["senha"]
         pet = request.form["pet"]
         nome_pet = request.form["nomePet"]
-        print(nome,email,cpf,celular)
         rep.realizar_cadastro(nome, email, cpf, celular, endereco, senha, pet, nome_pet)
         return render_template("login.html")
     else:
@@ -66,9 +54,18 @@ def cadastrar_usuario():
 def promocao():
     return render_template ('promocao.html')
 
-@app.route("/agendamento")
+@app.route("/agendamento", methods = ["GET", "POST"])
 def agendamento():
-    return render_template ('agendamento.html')
+    if request.method == "POST":
+        id_pet = request.form["pet"]
+        id_profissional = request.form["profissional"]
+        data = request.form["data"]
+        horario = request.form["horario"]
+        rep.agendamento(data=data,horario=horario,id_profissional=id_profissional,id_cliente=4,id_servico=2)
+        return render_template ('agendamento.html')
+    else:
+        return render_template ('agendamento.html')
+
 
 @app.route("/compra")
 def compra():

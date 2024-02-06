@@ -70,7 +70,22 @@ def login(email,senha:int):
     except:
         False
 
-login("leonardotaianav@outlook.com", 1234)
+def agendamento(data,horario,id_profissional,id_cliente,id_servico):
+    try:
+        conn = sqlite3.connect('petshop.db')
+        cursor = conn.cursor()
+        sql_select = f'INSERT INTO agendamento (data_agendamento,hora_agendamento,id_profissional,id_cliente,id_servico) VALUES ("{data}","{horario}",{id_profissional},{id_cliente},{id_servico})'
+        cursor.execute(sql_select)
+        conn.commit()
+        conn.close()
+        msg = "Dados gravados com sucesso"
+        return msg
+    except:
+        msg = "Erro ao inserir os dados"
+        return msg
+
+
+
 
         
 

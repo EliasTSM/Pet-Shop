@@ -100,43 +100,49 @@
             <div class="info-direita">
                 <div class="box-info-direita">
                     <h3>Agendamento</h3>
-                    <form action="">
+                    <form action="/agendamento" method="POST">
                         <label for="pet">Qual pet será atendido?</label>
                         <select id="pet" name="pet">
                             <option>Selecione uma opção</option>
-                            <option>Max</option>
+                            <option value="1">Cachorro</option>
+                            <option value="2">Gato</option>
+                            <option value="3">Hamster</option>
+                            <option value="4">Pássaro</option>
+                            <option value="5">Porco da Índia</option>
+                            <option value="6">Peixe</option>
+
                         </select>
                         <label for="nome">Escolha um especialista:</label>
-                        <select id="pet" name="pet">
+                        <select id="profissional" name="profissional">
                             <option>Selecione uma opção</option>
-                            <option>Elias</option>
+                            <option value="1">Elias</option>
                         </select>
                         <label for="nome">Pra quando você gostaria de agendar?</label>
-                        <select id="pet" name="pet">
+                        <select id="data" name="data">
                             <option>Selecione uma opção</option>
                             <option>Segunda - 05/02</option>
                             <option>Terça - 06/02</option>
                             <option>Quarta - 07/02</option>
                         </select>
                         <label for="nome">Escolha um horário:</label>
-                        <select id="pet" name="pet">
+                        <select id="horario" name="horario">
                             <option>Selecione uma opção</option>
                             <option>10:00</option>
                             <option>13:00</option>
                             <option>15:00</option>
                         </select>
                         <label for="nome">Qual a forma de Pagamento?</label>
-                        <select id="pet" name="pet">
+                        <select id="pagamento" name="pagamento">
                             <option>Selecione uma opção</option>
                             <option>Pix</option>
                             <option>Cartão</option>
                             <option>Boleto</option>
                             <option>Dinheiro</option>
                         </select>
+                        <input type="submit" class="button-left" nome="Agendar" value="Agendar">
                     </form>
-                    <h4>Banho e tosa - Gato</h4>
-                    <h5>Valor R$ 100,00</h5>
-                    <button class="button-left">Agendar</button>
+                    <h4></h4>
+                    <h5></h5>
                 </div>
             </div>
         </section>

@@ -100,7 +100,7 @@
             <div class="cards">
                 {% for id_produto, nome_produto, descricao_produto, valor_produto, quantidade_produto, id_animal, tipo_produto, imagem in produtos %}
                 <div class="card">
-                    <img class="img-card" src={{imagem}} alt="imagem produto">
+                    <img class="img-card" src="{{ url_for('static', filename=imagem) }}" alt="imagem produto">
                     <h4>{{nome_produto}}</h4>
                     <p class="preco">R$ {{valor_produto}}</p>
                     <p class="divisao"></p>
