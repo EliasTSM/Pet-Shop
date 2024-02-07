@@ -96,7 +96,11 @@
         </header>
         <section class="conteudo">
             <div class="anuncio">
-                <img class="img-anuncio" src="{{ url_for('static', filename='image/anuncio.png')}}" alt="imagem desconto">
+                <div class="anuncio-image" id="img">
+                    <img class="img-anuncio" src="{{ url_for('static', filename='image/anuncio2.png')}}" alt="imagem anuncio">
+                    <img class="img-anuncio" src="{{ url_for('static', filename='image/anuncio1.png')}}" alt="imagem anuncio">
+                    <img class="img-anuncio" src="{{ url_for('static', filename='image/anuncio3.png')}}" alt="imagem anuncio">
+                </div>
             </div>
             {% if produtos != [] %}
             <h3>Produtos Recomendados</h3>

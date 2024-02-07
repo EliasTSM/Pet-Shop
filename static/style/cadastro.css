@@ -102,6 +102,7 @@ button {
 .button-left {
     padding: 4%;
     background-color: #e0e0de;
+    cursor: pointer;
 }
 
 form {
