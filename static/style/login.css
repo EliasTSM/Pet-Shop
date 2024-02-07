@@ -96,6 +96,7 @@ button {
 .button-left {
     padding: 4%;
     background-color: #e0e0de;
+    margin-left: 12%;
 }
 
 form {

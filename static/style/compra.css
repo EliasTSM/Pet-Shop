@@ -272,6 +272,16 @@ nav{
     animation: slideleft .3s ease;
 }
 
+.card-link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    width: 100%;
+}
+
 .produto {
     display: flex;
     margin: 1.5% 0;
@@ -322,7 +332,13 @@ nav{
 .input-contador {
     width: 30px;
     height: 30px;
+    padding-left: 1%;
 }
+
+.quantidadeProduto {
+    display: none;
+}
+
 .btn-comprar {
     width: 50%;
     height: 40px;

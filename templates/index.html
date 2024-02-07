@@ -109,7 +109,7 @@
                 {% else %}
                 {% for id_produto, nome_produto, descricao_produto, valor_produto, quantidade_produto, id_animal, tipo_produto, imagem in produtos %}
                 <div class="card">
-                    <a href="/compra" class="card-link">
+                    <a href="/compra/{{id_produto}}" class="card-link">
                         <img class="img-card" src="{{ url_for('static', filename='image/' + imagem )}}" alt="imagem produto">
                         <h4>{{nome_produto}}</h4>
                         <p class="preco">R$ {{valor_produto}}</p>

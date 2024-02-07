@@ -7,12 +7,12 @@ import rep
 
 @app.route("/")
 def inicial():
-    produtos = rep.produto(1, "racao")
+    produtos = rep.produtos(1, "racao")
     return render_template ('index.html', produtos=produtos)
 
 @app.route("/produtos/<classe>/<animal>", methods = ["GET"])
 def produtos(classe, animal):
-    produtos = rep.produto(animal, classe)
+    produtos = rep.produtos(animal, classe)
     return render_template('index.html', produtos=produtos)
 
 @app.route("/servicos")
@@ -33,7 +33,7 @@ def login():
         endereco = cliente[0][1]
         user_dados = User(id, nome, cpf, e_mail, contato, endereco)
         if len(cliente) != 0:
-            produtos = rep.produto(1, "racao")
+            produtos = rep.produtos(1, "racao")
             login_user(user_dados)
             return render_template("index.html", produtos=produtos)
         else:
@@ -44,7 +44,7 @@ def login():
 @app.route('/logout')
 def logout():
     logout_user()
-    produtos = rep.produto(1, "racao")
+    produtos = rep.produtos(1, "racao")
     return render_template ('index.html', produtos=produtos)
     
 
@@ -68,8 +68,8 @@ def cadastrar_usuario():
 def promocao():
     return render_template ('promocao.html')
 
-@app.route("/agendamento", methods = ["GET", "POST"])
-def agendamento():
+@app.route("/agendamento/<servico>", methods = ["GET", "POST"])
+def agendamento(servico):
     if (current_user.is_authenticated):
         if request.method == "POST":
             id_pet = request.form["pet"]
@@ -84,8 +84,12 @@ def agendamento():
         return render_template ('login.html')
 
 
-@app.route("/compra")
-def compra():
-    return render_template ('compra.html')
+@app.route("/compra/<idProduto>")
+def compra(idProduto):
+    produto = rep.produto(idProduto)
+    animal = produto[0][5]
+    classe = produto[0][6]
+    produtos = rep.produtos(animal, classe)
+    return render_template ('compra.html', produto=produto, produtos=produtos)
 
 app.run(debug=True)

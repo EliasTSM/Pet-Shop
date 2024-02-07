@@ -34,11 +34,23 @@ def realizar_cadastro(nome, email, cpf, celular, endereco, senha, pet, nome_pet)
 
     return msg
 
-def produto(id_animal:int, tipo_produto):
+def produtos(id_animal:int, tipo_produto):
     try:
         conn = sqlite3.connect('petshop.db')
         cursor = conn.cursor()
         sql_select = f'SELECT * FROM produto WHERE tipo_produto = "{tipo_produto}" AND id_animal = {id_animal}'
+        cursor.execute(sql_select)
+        produto = cursor.fetchall()      
+        conn.close()
+        return produto
+    except:
+        return False
+    
+def produto(id_produto:int):
+    try:
+        conn = sqlite3.connect('petshop.db')
+        cursor = conn.cursor()
+        sql_select = f'SELECT * FROM produto WHERE id_produto = {id_produto}'
         cursor.execute(sql_select)
         produto = cursor.fetchall()      
         conn.close()

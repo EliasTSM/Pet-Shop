@@ -95,64 +95,45 @@
             </nav>
         </header>
         <section class="conteudo">
+            {% if produto != [] %}
+            {% for id_produto, nome_produto, descricao_produto, valor_produto, quantidade_produto, id_animal, tipo_produto, imagem in produto %}
             <div class="produto">
                 <div class="produto-direita">
-                    <img class="img-produto" src="../static/image/racao.png" alt="imagem desconto">
+                    <img class="img-produto" src="{{ url_for('static', filename='image/' + imagem )}}" alt="imagem desconto">
                 </div>
                 <div class="produto-esquerda">
-                    <h4 class="nome-produto">Ração Hills Science Diet para Cães...</h4>
-                    <p class="preco-produto">R$ 479,99</p>
-                    <p class="divisao-produto">ou 5X de 96,00</p>
+                    <h4 class="nome-produto">{{nome_produto}}</h4>
+                    <p class="preco-produto">R$ {{valor_produto}}</p>
+                    <p class="divisao-produto"></p>
                     <label class="quantidade-produto" for="quantidade">Quantidade</label>
                     <div class="contador">
-                        <button class="btn-contador">-</button>
+                        <p class="quantidadeProduto">{{quantidade_produto}}</p>
+                        <button id="subtrair" class="btn-contador">-</button>
                         <input class="input-contador" type="text" id="valor" name="valor" value="1">
-                        <button class="btn-contador">+</button>
+                        <button id="adicionar" class="btn-contador">+</button>
                     </div>
                     <button class="btn-comprar">Comprar</button>
                 </div>
             </div>
             <div class="descricao">
-                <p>Descrição do produto com todas as informações necessaárias.</p>
+                <p>{{descricao_produto}}</p>
             </div>
+            {% endfor %}
+            {% endif %}
             <h3>Produtos Recomendados</h3>
             <div class="cards">
+                {% for i in range(5) %}
+                {% if produtos[i] %}
                 <div class="card">
-                    <img class="img-card" src="../static/image/racao.png" alt="imagem desconto">
-                    <h4>Ração Hills Science Diet para Cães...</h4>
-                    <p class="preco">R$ 479,99</p>
-                    <p class="divisao">ou 5X de 96,00</p>
+                    <a href="/compra/{{produtos[i][0]}}" class="card-link">
+                        <img class="img-card" src="{{ url_for('static', filename='image/' + produtos[i][7])}}" alt="imagem produto">
+                        <h4>{{produtos[i][1]}}</h4>
+                        <p class="preco">R$ {{produtos[i][3]}}</p>
+                        <p class="divisao"></p>
+                    </a>
                 </div>
-                <div class="card">
-                    <img class="img-card" src="../static/image/racao.png" alt="imagem desconto">
-                    <h4>Ração Hills Science Diet para Cães...</h4>
-                    <p class="preco">R$ 479,99</p>
-                    <p class="divisao">ou 5X de 96,00</p>
-                </div>
-                <div class="card">
-                    <img class="img-card" src="../static/image/racao.png" alt="imagem desconto">
-                    <h4>Ração Hills Science Diet para Cães...</h4>
-                    <p class="preco">R$ 479,99</p>
-                    <p class="divisao">ou 5X de 96,00</p>
-                </div>
-                <div class="card">
-                    <img class="img-card" src="../static/image/racao.png" alt="imagem desconto">
-                    <h4>Ração Hills Science Diet para Cães...</h4>
-                    <p class="preco">R$ 479,99</p>
-                    <p class="divisao">ou 5X de 96,00</p>
-                </div>
-                <div class="card">
-                    <img class="img-card" src="../static/image/racao.png" alt="imagem desconto">
-                    <h4>Ração Hills Science Diet para Cães...</h4>
-                    <p class="preco">R$ 479,99</p>
-                    <p class="divisao">ou 5X de 96,00</p>
-                </div>
-                <div class="card">
-                    <img class="img-card" src="../static/image/racao.png" alt="imagem desconto">
-                    <h4>Ração Hills Science Diet para Cães...</h4>
-                    <p class="preco">R$ 479,99</p>
-                    <p class="divisao">ou 5X de 96,00</p>
-                </div>               
+                {% endif %}
+                {% endfor %}               
             </div>
             <a href="#"><img class="img-whatsapp" src="../static/image/whatsapp.png" alt="imagem whatsapp"></a>
         </section>
@@ -164,5 +145,6 @@
             </div>
             <div class="copy">Copyright 2024 <i class="fa-solid fa-copyright" style="color: #000000;"></i></div>
         </footer>
+        <script src="{{ url_for('static', filename='js/compra.js')}}"></script>
     </body>
 </html>
