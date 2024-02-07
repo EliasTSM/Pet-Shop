@@ -47,6 +47,29 @@ h3 {
     flex-wrap: wrap;
 }
 
+.indisponivel {
+    padding-top: 5%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.indisponivel p {
+    font-size: 22px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.card-link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    width: 100%;
+}
+
 .card {
     width: 15%;
     height: 15rem;

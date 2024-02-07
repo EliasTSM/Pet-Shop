@@ -98,16 +98,26 @@
             <div class="anuncio">
                 <img class="img-anuncio" src="{{ url_for('static', filename='image/anuncio.png')}}" alt="imagem desconto">
             </div>
+            {% if produtos != [] %}
             <h3>Produtos Recomendados</h3>
+            {% endif %}
             <div class="cards">
+                {% if produtos == [] %}
+                <div class="indisponivel">
+                    <p>Produtos Indisponíveis...</p>
+                </div>
+                {% else %}
                 {% for id_produto, nome_produto, descricao_produto, valor_produto, quantidade_produto, id_animal, tipo_produto, imagem in produtos %}
                 <div class="card">
-                    <img class="img-card" src="{{ url_for('static', filename='image/' + imagem )}}" alt="imagem produto">
-                    <h4>{{nome_produto}}</h4>
-                    <p class="preco">R$ {{valor_produto}}</p>
-                    <p class="divisao"></p>
+                    <a href="/compra" class="card-link">
+                        <img class="img-card" src="{{ url_for('static', filename='image/' + imagem )}}" alt="imagem produto">
+                        <h4>{{nome_produto}}</h4>
+                        <p class="preco">R$ {{valor_produto}}</p>
+                        <p class="divisao"></p>
+                    </a>
                 </div>
-                {% endfor %}                
+                {% endfor %}   
+                {% endif %}             
             </div>
             <a href="#"><img class="img-whatsapp" src="{{ url_for('static', filename='image/whatsapp.png')}}" alt="imagem whatsapp"></a>
         </section>
