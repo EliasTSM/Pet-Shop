@@ -1,6 +1,14 @@
 import sqlite3
 
 
+def gerar_id_humano():
+    conn = sqlite3.connect("petshop.db")
+    cursor = conn.cursor()
+    cursor.execute("SELECT seq FROM sqlite_sequence WHERE name='humano'")
+    id = cursor.fetchone()[0]
+    conn.close()
+    return id + 1
+
 def realizar_cadastro(nome, email, cpf, celular, endereco, senha, pet, nome_pet):
     try:
         conn = sqlite3.connect('petshop.db')
@@ -23,7 +31,8 @@ def realizar_cadastro(nome, email, cpf, celular, endereco, senha, pet, nome_pet)
             case "Peixe":
                 id_pet = 6
         
-        sql_insert_cliente = f'INSERT INTO clientes (nome_cliente, id_animal) VALUES ("{nome_pet}", {id_pet})'
+        id_humano = gerar_id_humano()
+        sql_insert_cliente = f'INSERT INTO clientes (nome_cliente, id_animal, id_humano) VALUES ("{nome_pet}", {id_pet}, {id_humano})'
         cursor.execute(sql_insert_cliente)
         
         conn.commit()

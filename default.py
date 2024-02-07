@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for, redirect, session, flash
+from flask import Flask, flash, render_template, request, url_for, redirect, session, flash
 from app import app
 from flask_login import login_user, logout_user, current_user
 from user import User
@@ -60,7 +60,7 @@ def cadastrar_usuario():
         pet = request.form["pet"]
         nome_pet = request.form["nomePet"]
         rep.realizar_cadastro(nome, email, cpf, celular, endereco, senha, pet, nome_pet)
-        return render_template("login.html")
+        return redirect(url_for('/login'))
     else:
         return render_template("cadastro.html")
 
@@ -77,11 +77,11 @@ def agendamento(servico):
             data = request.form["data"]
             horario = request.form["horario"]
             rep.agendamento(data=data,horario=horario,id_profissional=id_profissional,id_cliente=4,id_servico=2)
-            return render_template ('agendamento.html')
+            return render_template ('agendamento.html', servico = servico)
         else:
-            return render_template ('agendamento.html')
+            return render_template ('agendamento.html', servico = servico)
     else:
-        return render_template ('login.html')
+        return redirect(url_for('login'))
 
 
 @app.route("/compra/<idProduto>")
