@@ -16,23 +16,9 @@ def realizar_cadastro(nome, email, cpf, celular, endereco, senha, pet, nome_pet)
 
         sql_insert_humano = f'INSERT INTO humano (nome_humano, cpf_humano, email_humano, contato_humano, endereco_humano, senha) VALUES ("{nome}", "{cpf}", "{email}", "{celular}", "{endereco}", "{senha}")'
         cursor.execute(sql_insert_humano)
-        
-        match pet:
-            case "Cachorro":
-                id_pet = 1
-            case "Gato":
-                id_pet = 2
-            case "Pássaro":
-                id_pet = 4
-            case "Hamster":
-                id_pet = 3
-            case "Porco da India":
-                id_pet = 5
-            case "Peixe":
-                id_pet = 6
-        
+       
         id_humano = gerar_id_humano()
-        sql_insert_cliente = f'INSERT INTO clientes (nome_cliente, id_animal, id_humano) VALUES ("{nome_pet}", {id_pet}, {id_humano})'
+        sql_insert_cliente = f'INSERT INTO clientes (nome_cliente, id_animal, id_humano) VALUES ("{nome_pet}", {pet}, {id_humano})'
         cursor.execute(sql_insert_cliente)
         
         conn.commit()
@@ -118,8 +104,42 @@ def agendamento(data,horario,id_profissional,id_cliente,id_servico):
         msg = "Erro ao inserir os dados"
         return msg
 
+def tipoServico(tipo_servico, id_animal):
+    try: 
+        conn = sqlite3.connect('petshop.db')
+        cursor = conn.cursor()
+        sql_select = f'SELECT id_servico FROM servicos WHERE id_animal = "{id_animal}" AND tipo_servico = "{tipo_servico}"'
+        cursor.execute(sql_select)
+        id_servico = cursor.fetchall()
+        conn.close()
+        return id_servico
+    except:
+        False
 
 
+def info_clientes(id_humano):
+    try: 
+        conn = sqlite3.connect('petshop.db')
+        cursor = conn.cursor()
+        sql_select = f'SELECT * FROM clientes WHERE id_humano = "{id_humano}"'
+        cursor.execute(sql_select)
+        clientes = cursor.fetchall()
+        conn.close()
+        return clientes
+    except:
+        False
+
+def tipoPet(id_pet):
+    try: 
+        conn = sqlite3.connect('petshop.db')
+        cursor = conn.cursor()
+        sql_select = f'SELECT id_animal FROM clientes WHERE id_cliente = "{id_pet}"'
+        cursor.execute(sql_select)
+        idAnimal = cursor.fetchall()
+        conn.close()
+        return idAnimal
+    except:
+        False
 
         
 

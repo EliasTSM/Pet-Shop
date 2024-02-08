@@ -116,42 +116,49 @@
                     <h3>Agendamento</h3>
                     <form action="/agendamento/{{servico}}" method="POST">
                         <label for="pet">Qual pet será atendido?</label>
-                        <select id="pet" name="pet">
-                            <option>Selecione uma opção</option>
-                            <option value="1">Cachorro</option>
-                            <option value="2">Gato</option>
-                            <option value="3">Hamster</option>
-                            <option value="4">Pássaro</option>
-                            <option value="5">Porco da Índia</option>
-                            <option value="6">Peixe</option>
-
+                        <select id="pet" name="pet" required>
+                            <option value="">Selecione uma opção</option>
+                            {% for id_pet, nome_pet, id_animal, id_humano in pets %}
+                            <option value="{{id_pet}}">{{nome_pet}}</option>
+                            {% endfor %}
                         </select>
-                        <label for="nome">Escolha um especialista:</label>
-                        <select id="profissional" name="profissional">
-                            <option>Selecione uma opção</option>
-                            <option value="1">Elias</option>
+                        <label for="profissional">Escolha um especialista:</label>
+                        <select id="profissional" name="profissional" required>
+                            <option value="">Selecione uma opção</option>
+                            <option>Elias Tiago</option>
+                            <option>Adenilde Duranes</option>
+                            <option>Leonardo Taian</option>
+                            <option>Thoday Araújo</option>
+                            <option>Rafael Muniz</option>
+                            <option>Bruno Romano</option>
                         </select>
-                        <label for="nome">Pra quando você gostaria de agendar?</label>
-                        <select id="data" name="data">
-                            <option>Selecione uma opção</option>
-                            <option>Segunda - 05/02</option>
-                            <option>Terça - 06/02</option>
-                            <option>Quarta - 07/02</option>
+                        <label for="data">Pra quando você gostaria de agendar?</label>
+                        <select id="data" name="data" required>
+                            <option value="">Selecione uma opção</option>
+                            <option>19/02 - Segunda-feira</option>
+                            <option>20/02 - Terça-feira</option>
+                            <option>21/02 - Quarta-feira</option>
+                            <option>22/02 - Quinta-feira</option>
+                            <option>23/02 - Sexta-feira</option>
                         </select>
-                        <label for="nome">Escolha um horário:</label>
-                        <select id="horario" name="horario">
-                            <option>Selecione uma opção</option>
+                        <label for="horario">Escolha um horário:</label>
+                        <select id="horario" name="horario" required>
+                            <option value="">Selecione uma opção</option>
+                            <option>08:00</option>
+                            <option>09:00</option>
                             <option>10:00</option>
                             <option>13:00</option>
                             <option>15:00</option>
+                            <option>16:00</option>
+                            <option>17:00</option>
                         </select>
-                        <label for="nome">Qual a forma de Pagamento?</label>
-                        <select id="pagamento" name="pagamento">
-                            <option>Selecione uma opção</option>
-                            <option>Pix</option>
-                            <option>Cartão</option>
-                            <option>Boleto</option>
-                            <option>Dinheiro</option>
+                        <label for="pagamento">Qual a forma de Pagamento?</label>
+                        <select id="pagamento" name="pagamento" required>
+                            <option value="">Selecione uma opção</option>
+                            <option value="Pix">Pix</option>
+                            <option value="Cartão">Cartão</option>
+                            <option value="Boleto">Boleto</option>
+                            <option value="Dinheiro">Dinheiro</option>
                         </select>
                         <input type="submit" class="button-left" nome="Agendar" value="Agendar">
                     </form>
@@ -163,5 +170,6 @@
         <footer class="rodape">
             <div class="copy">Copyright 2024 <i class="fa-solid fa-copyright" style="color: rgb(117, 117, 117);"></i></div>
         </footer>
+        <script src="{{ url_for('static', filename='js/agendamento.js')}}"></script>
     </body>
 </html>

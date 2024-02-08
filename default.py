@@ -61,7 +61,7 @@ def cadastrar_usuario():
         pet = request.form["pet"]
         nome_pet = request.form["nomePet"]
         rep.realizar_cadastro(nome, email, cpf, celular, endereco, senha, pet, nome_pet)
-        return redirect(url_for('/login'))
+        return redirect(url_for('login'))
     else:
         return render_template("cadastro.html")
 
@@ -77,11 +77,19 @@ def agendamento(servico):
             id_profissional = request.form["profissional"]
             data = request.form["data"]
             horario = request.form["horario"]
-            rep.agendamento(data=data,horario=horario,id_profissional=id_profissional,id_cliente=4,id_servico=2)
+            if (servico == "veterinario"):
+                tipo_servico = "Consulta Veterinária"
+            else:
+                tipo_servico = "Banho e Tosa"
+
+            id_animal = rep.tipoPet(id_pet)
+            id_servico = rep.tipoServico(tipo_servico, id_animal[0][0])
+            rep.agendamento(data=data,horario=horario,id_profissional=id_profissional,id_cliente=id_pet,id_servico=id_servico[0][0])
             flash("Agendamento realizado com sucesso!")
             return render_template ('agendamento.html', servico = servico)
         else:
-            return render_template ('agendamento.html', servico = servico)
+            pets = rep.info_clientes(current_user.id)
+            return render_template ('agendamento.html', servico = servico, pets = pets)
     else:
         return redirect(url_for('login'))
 
