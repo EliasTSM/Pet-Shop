@@ -20,25 +20,38 @@
             </div>
         </header>
         <section class="conteudo">
-            <div class="info-esquerda">
-                <h2>Acessar ou criar conta</h2>
-                <div class="box-login">
-                    <h3>Acesse sua conta</h3>
-                    <form method="POST">
-                        <label for="email">E-mail</label>
-                        <input type="text" id="email" name="email" placeholder="Digite seu email">
-                        <label for="senha">Senha</label>
-                        <input type="password" id="senha" name="senha" placeholder="Sua senha">
-                        <button type="submit" class="button-left">Entrar</button>
-                    </form>
-                    
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                <div class="alert alert-warning">
+                    <ul class=flashes>
+                    {% for message in messages %}
+                    <li>{{ message }}</li>
+                    {% endfor %}
+                    </ul>
                 </div>
-            </div>
-            <div class="info-direita">
-                <div class="box-info-direita">
-                    <h2>Criar uma conta é rápido, fácil e gratuito!</h2>
-                    <p>Com a sua conta você tem acesso a Ofertas exclusivas, descontos, pode criar e gerenciar a sua Assinatura, acompanhar os seus pedidos e muito mais!</p>
-                    <a href="/cadastro" class="button-right">Criar minha conta</a>
+                {% endif %}
+            {% endwith %}
+            <div class="infos">
+                <div class="info-esquerda">
+                    <h2>Acessar ou criar conta</h2>
+                    <div class="box-login">
+                        <h3>Acesse sua conta</h3>
+                        <form method="POST">
+                            <label for="email">E-mail</label>
+                            <input type="text" id="email" name="email" placeholder="Digite seu email">
+                            <label for="senha">Senha</label>
+                            <input type="password" id="senha" name="senha" placeholder="Sua senha">
+                            <button type="submit" class="button-left">Entrar</button>
+                        </form>
+                        
+                    </div>
+                </div>
+                <div class="info-direita">
+                    <div class="box-info-direita">
+                        <h2>Criar uma conta é rápido, fácil e gratuito!</h2>
+                        <p>Com a sua conta você tem acesso a Ofertas exclusivas, descontos, pode criar e gerenciar a sua Assinatura, acompanhar os seus pedidos e muito mais!</p>
+                        <a href="/cadastro" class="button-right">Criar minha conta</a>
+                    </div>
                 </div>
             </div>
         </section>

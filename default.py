@@ -1,4 +1,4 @@
-from flask import Flask, flash, render_template, request, url_for, redirect, session, flash
+from flask import Flask, render_template, request, url_for, redirect, session, flash
 from app import app
 from flask_login import login_user, logout_user, current_user
 from user import User
@@ -25,18 +25,19 @@ def login():
         email = request.form["email"]
         senha = request.form["senha"]
         cliente = rep.login(email,senha)
-        id = cliente[0][0]
-        nome = cliente[0][1]
-        cpf = cliente[0][1]
-        e_mail = cliente[0][1]
-        contato = cliente[0][1]
-        endereco = cliente[0][1]
-        user_dados = User(id, nome, cpf, e_mail, contato, endereco)
         if len(cliente) != 0:
+            id = cliente[0][0]
+            nome = cliente[0][1]
+            cpf = cliente[0][1]
+            e_mail = cliente[0][1]
+            contato = cliente[0][1]
+            endereco = cliente[0][1]
+            user_dados = User(id, nome, cpf, e_mail, contato, endereco)
             produtos = rep.produtos(1, "racao")
             login_user(user_dados)
             return render_template("index.html", produtos=produtos)
         else:
+            flash("Email ou senha inválidos.")
             return render_template("login.html")
     
     return render_template("login.html")
@@ -77,6 +78,7 @@ def agendamento(servico):
             data = request.form["data"]
             horario = request.form["horario"]
             rep.agendamento(data=data,horario=horario,id_profissional=id_profissional,id_cliente=4,id_servico=2)
+            flash("Agendamento realizado com sucesso!")
             return render_template ('agendamento.html', servico = servico)
         else:
             return render_template ('agendamento.html', servico = servico)
