@@ -14,7 +14,8 @@ def inicial():
 @app.route("/produtos/<classe>/<animal>", methods = ["GET"])
 def produtos(classe, animal):
     produtos = rep.produtos(animal, classe)
-    return render_template('index.html', produtos=produtos)
+    listaProdutos = rep.listaProdutos()
+    return render_template ('index.html', produtos=produtos, listaProdutos = listaProdutos)
 
 @app.route("/servicos")
 def servicos():
@@ -36,7 +37,8 @@ def login():
             user_dados = User(id, nome, cpf, e_mail, contato, endereco)
             produtos = rep.produtos(1, "racao")
             login_user(user_dados)
-            return render_template("index.html", produtos=produtos)
+            listaProdutos = rep.listaProdutos()
+            return render_template ('index.html', produtos=produtos, listaProdutos = listaProdutos)
         else:
             flash("Email ou senha inválidos.")
             return render_template("login.html")
@@ -47,7 +49,8 @@ def login():
 def logout():
     logout_user()
     produtos = rep.produtos(1, "racao")
-    return render_template ('index.html', produtos=produtos)
+    listaProdutos = rep.listaProdutos()
+    return render_template ('index.html', produtos=produtos, listaProdutos = listaProdutos)
     
 
 @app.route("/cadastro", methods=["GET", "POST"])
