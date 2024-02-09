@@ -5,7 +5,7 @@ import rep
 @lm.user_loader
 def load_user(id):
     cliente = rep.verificacao(id)
-    user = User(cliente[0][0], cliente[0][1], cliente[0][2], cliente[0][3], cliente[0][4], cliente[0][5])
+    user = User(cliente[0][0], cliente[0][1], cliente[0][2], cliente[0][3], cliente[0][4], cliente[0][5], cliente[0][6])
     return user
 
 class User(UserMixin):

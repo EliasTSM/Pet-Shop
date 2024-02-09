@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="description" content="Página web de pet shop">
         <link rel="shortcut icon" type="image/jpg" href="../static/image/logo.png"/>
-        <link rel="stylesheet" href="../static/style/agendamento.css">
+        <link rel="stylesheet" href="../static/style/perfil.css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -101,75 +101,74 @@
         <section class="conteudo">
             <div class="info-esquerda">
                 <div class="box-login">
-                    <label for="nome">Nome</label>
-                    <input type="text" id="nome" name="nome" value="{{current_user.nome_humano}}" disabled>
-                    <label for="email">E-mail</label>
-                    <input type="text" id="email" name="email" value="{{current_user.email_humano}}" disabled>
-                    <label for="celular">Celular</label>
-                    <input type="tel" id="celular" name="celular" value="{{current_user.contato_humano}}" disabled>
-                    <label for="endereco">Endereço</label>
-                    <input type="text" id="endereco" name="endereco" value="{{current_user.endereco_humano}}" disabled>
+                    <form>
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome" value="{{current_user.nome_humano}}" placeholder="Digite seu nome completo">
+                        <label for="cpf">CPF</label>
+                        <input type="text" id="cpf" name="cpf" value="{{current_user.cpf_humano}}" disabled>
+                        <label for="email">E-mail</label>
+                        <input type="text" id="email" name="email" value="{{current_user.email_humano}}" placeholder="Digite seu email">
+                        <label for="celular">Celular</label>
+                        <input type="tel" id="celular" name="celular" value="{{current_user.contato_humano}}" placeholder="DDD + Celular">
+                        <label for="endereco">Endereço</label>
+                        <input type="text" id="endereco" name="endereco" value="{{current_user.endereco_humano}}" placeholder="Digite seu endereço">
+                        <label for="senha">Senha</label>
+                        <div class="password">
+                            <input type="password" id="senha" name="senha" value="{{current_user.senha}}" placeholder="Digite uma senha">
+                            <i class="fa-regular fa-eye" style="color: #0a0a0a;" id="btn-senha" onclick="mostarSenha()"></i>
+                        </div>
+                        <input type="submit" class="save" nome="salvar" value="Salvar alterações">
+                        <input type="submit" id="delete" nome="excluir" value="Excluir conta">
+                    </form>
                 </div>
             </div>
             <div class="info-direita">
                 <div class="box-info-direita">
-                    <h3>Agendamento</h3>
-                    <form action="/agendamento/{{servico}}" method="POST">
-                        <label for="pet">Qual pet será atendido?</label>
-                        <select id="pet" name="pet" required>
-                            <option value="">Selecione uma opção</option>
-                            {% for id_pet, nome_pet, id_animal, id_humano in pets %}
-                            <option value="{{id_pet}}">{{nome_pet}}</option>
-                            {% endfor %}
-                        </select>
-                        <label for="profissional">Escolha um especialista:</label>
-                        <select id="profissional" name="profissional" required>
-                            <option value="">Selecione uma opção</option>
-                            <option>Elias Tiago</option>
-                            <option>Adenilde Duranes</option>
-                            <option>Leonardo Taian</option>
-                            <option>Thoday Araújo</option>
-                            <option>Rafael Muniz</option>
-                            <option>Bruno Romano</option>
-                        </select>
-                        <label for="data">Pra quando você gostaria de agendar?</label>
-                        <select id="data" name="data" required>
-                            <option value="">Selecione uma opção</option>
-                            <option>19/02 - Segunda-feira</option>
-                            <option>20/02 - Terça-feira</option>
-                            <option>21/02 - Quarta-feira</option>
-                            <option>22/02 - Quinta-feira</option>
-                            <option>23/02 - Sexta-feira</option>
-                        </select>
-                        <label for="horario">Escolha um horário:</label>
-                        <select id="horario" name="horario" required>
-                            <option value="">Selecione uma opção</option>
-                            <option>08:00</option>
-                            <option>09:00</option>
-                            <option>10:00</option>
-                            <option>13:00</option>
-                            <option>15:00</option>
-                            <option>16:00</option>
-                            <option>17:00</option>
-                        </select>
-                        <label for="pagamento">Qual a forma de Pagamento?</label>
-                        <select id="pagamento" name="pagamento" required>
-                            <option value="">Selecione uma opção</option>
-                            <option value="Pix">Pix</option>
-                            <option value="Cartão">Cartão</option>
-                            <option value="Boleto">Boleto</option>
-                            <option value="Dinheiro">Dinheiro</option>
-                        </select>
-                        <input type="submit" class="button-left" nome="Agendar" value="Agendar">
-                    </form>
-                    <h4></h4>
-                    <h5></h5>
+                    <div class="meus-pets">
+                        <table>
+                            <tr>
+                                <th>Meus Pets</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                            <tr>
+                                <td>Nome Pet</td>
+                                <td class="excluir-pet"><i class="fa-solid fa-x" style="color: #d80202;"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Nome Pet</td>
+                                <td class="excluir-pet"><i class="fa-solid fa-x" style="color: #d80202;"></i></td>
+                            </tr>
+                        </table>
+                        <input type="submit" class="add-left" nome="adicionar" value="Adicionar um novo Pet">
+                    </div>
+                    <div class="Consultas">
+                        <table class="tabela-consulta">
+                            <tr>
+                                <th colspan="4">Consultas</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                            <tr class="linha-consulta">
+                                <td>Segunda-feira - 05/02 - 08:00</td>
+                                <td>Consulta Veterinaria</td>
+                                <td>Elias Tiago</td>
+                                <td>Max</td>
+                                <td><i class="fa-solid fa-x" style="color: #d80202;"></i></td>
+                            </tr>
+                            <tr class="linha-consulta">
+                                <td>Dia + hora</td>
+                                <td>Banho e tosa</td>
+                                <td>profissional</td>
+                                <td>nome animal</td>
+                                <td><i class="fa-solid fa-x" style="color: #d80202;"></i></td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
         </section>
         <footer class="rodape">
             <div class="copy">Copyright 2024 <i class="fa-solid fa-copyright" style="color: rgb(117, 117, 117);"></i></div>
         </footer>
-        <script src="{{ url_for('static', filename='js/agendamento.js')}}"></script>
+        <script src="{{ url_for('static', filename='js/perfil.js')}}"></script>
     </body>
 </html>

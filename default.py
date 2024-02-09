@@ -97,6 +97,12 @@ def agendamento(servico):
     else:
         return redirect(url_for('login'))
 
+@app.route("/perfil", methods = ["GET", "POST"])
+def perfil():
+    info = rep.verificacao(current_user.id)
+
+    return render_template ('perfil.html')
+
 
 @app.route("/compra/<idProduto>")
 def compra(idProduto):
