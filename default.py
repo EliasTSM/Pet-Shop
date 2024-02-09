@@ -8,7 +8,8 @@ import rep
 @app.route("/")
 def inicial():
     produtos = rep.produtos(1, "racao")
-    return render_template ('index.html', produtos=produtos)
+    listaProdutos = rep.listaProdutos()
+    return render_template ('index.html', produtos=produtos, listaProdutos = listaProdutos)
 
 @app.route("/produtos/<classe>/<animal>", methods = ["GET"])
 def produtos(classe, animal):

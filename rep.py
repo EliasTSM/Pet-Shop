@@ -52,6 +52,18 @@ def produto(id_produto:int):
         return produto
     except:
         return False
+
+def listaProdutos():
+    try:
+        conn = sqlite3.connect('petshop.db')
+        cursor = conn.cursor()
+        sql_select = f'SELECT * FROM produto'
+        cursor.execute(sql_select)
+        ListaDeProdutos = cursor.fetchall()      
+        conn.close()
+        return ListaDeProdutos
+    except:
+        return False
     
 def profissional(id_animal:int):
     try:

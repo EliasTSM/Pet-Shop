@@ -19,8 +19,22 @@
                 </div>
                 <div class="div-container">
                     <div class="search-box">
-                        <i class="fas fa-search"></i>
-                        <input class="search-txt" type="text" name="" placeholder="O que seu pet precisa?">
+                        <div class="search-container">
+                            <i class="fas fa-search"></i>
+                            <input id="inputBusca" class="search-txt" type="text" name="" placeholder="O que seu pet precisa?" onkeyup="filtrar()">
+                        </div>
+                        <ul class="lista-produtos" id="listaProdutos">
+                            {% if listaProdutos != [] %}
+                            {% for id_produto, nome_produto, descricao_produto, valor_produto, quantidade_produto, id_animal, tipo_produto, imagem in listaProdutos %}
+                            <li>
+                                <a href="/compra/{{id_produto}}">
+                                    <img width="50px" src="{{ url_for('static', filename='image/' + imagem)}}" alt="imagem do produto">
+                                    <span class="item-nome">{{nome_produto}}</span>
+                                </a>
+                            </li>
+                            {% endfor %}
+                            {% endif %} 
+                        </ul>                        
                     </div>
                 </div>
                 <div class="div-container login">
