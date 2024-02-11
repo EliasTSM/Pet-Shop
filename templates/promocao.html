@@ -23,7 +23,7 @@
                 <div class="div-container login">
                     {% if current_user.is_authenticated %}
                     <div class="user">
-                        <a href="#"> Olá, {{current_user.nome_humano}}</a>
+                        <a href="/perfil"> Olá, {{current_user.nome_humano}}</a>
                         <a id="logout" href="/logout">Sair</a>
                     </div>
                     {% else %}

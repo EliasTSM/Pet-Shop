@@ -22,7 +22,7 @@
                 </div>
                 <div class="div-container login">
                     <div class="user">
-                        <a href="#"> Olá, {{current_user.nome_humano}}</a>
+                        <a href="/perfil"> Olá, {{current_user.nome_humano}}</a>
                         <a id="logout" href="/logout">Sair</a>
                     </div>                   
                 </div>
@@ -118,7 +118,7 @@
                             <i class="fa-regular fa-eye" style="color: #0a0a0a;" id="btn-senha" onclick="mostarSenha()"></i>
                         </div>
                         <input type="submit" class="save" nome="salvar" value="Salvar alterações">
-                        <input type="submit" id="delete" nome="excluir" value="Excluir conta">
+                        <a href="/delete/conta/{{current_user.id}}" class="excluir-conta">Excluir conta</a>
                     </form>
                 </div>
             </div>
@@ -130,14 +130,14 @@
                                 <th>Meus Pets</th>
                                 <th>&nbsp;</th>
                             </tr>
+                            {% if pets != [] %}
+                            {% for pet_id, nome_cliente, id_animal, id_humano in pets %}
                             <tr>
-                                <td>Nome Pet</td>
-                                <td class="excluir-pet"><i class="fa-solid fa-x" style="color: #d80202;"></i></td>
+                                <td>{{nome_cliente}}</td>
+                                <td class="excluir-pet"><a href="/delete/pet/{{pet_id}}"><i class="fa-solid fa-x" style="color: #d80202;"></i></a></td>
                             </tr>
-                            <tr>
-                                <td>Nome Pet</td>
-                                <td class="excluir-pet"><i class="fa-solid fa-x" style="color: #d80202;"></i></td>
-                            </tr>
+                            {% endfor %}
+                            {% endif %}
                         </table>
                         <input type="submit" class="add-left" nome="adicionar" value="Adicionar um novo Pet">
                     </div>
@@ -147,20 +147,17 @@
                                 <th colspan="4">Consultas</th>
                                 <th>&nbsp;</th>
                             </tr>
+                            {% if consultas != [] %}
+                            {% for id, nome, profissional, servico, data, hora in consultas%}
                             <tr class="linha-consulta">
-                                <td>Segunda-feira - 05/02 - 08:00</td>
-                                <td>Consulta Veterinaria</td>
-                                <td>Elias Tiago</td>
-                                <td>Max</td>
-                                <td><i class="fa-solid fa-x" style="color: #d80202;"></i></td>
+                                <td>{{data}} - {{hora}}</td>
+                                <td>{{servico}}</td>
+                                <td>{{profissional}}</td>
+                                <td>{{nome}}</td>
+                                <td><a href="/delete/consulta/{{id}}"><i class="fa-solid fa-x" style="color: #d80202;"></i></a></td>
                             </tr>
-                            <tr class="linha-consulta">
-                                <td>Dia + hora</td>
-                                <td>Banho e tosa</td>
-                                <td>profissional</td>
-                                <td>nome animal</td>
-                                <td><i class="fa-solid fa-x" style="color: #d80202;"></i></td>
-                            </tr>
+                            {% endfor %}
+                            {% endif %}
                         </table>
                     </div>
                 </div>

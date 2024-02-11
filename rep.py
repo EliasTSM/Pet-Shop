@@ -77,6 +77,18 @@ def profissional(id_animal:int):
     except:
         return False
     
+def profissional_consulta(id_profissional:int):
+    try:
+        conn = sqlite3.connect('petshop.db')
+        cursor = conn.cursor()
+        sql_select = f'SELECT * FROM profissional WHERE id_profissional = {id_profissional}'
+        cursor.execute(sql_select)
+        profissional = cursor.fetchall()
+        conn.close
+        return profissional
+    except:
+        return False
+    
 def login(email,senha:int):
     try: 
         conn = sqlite3.connect('petshop.db')
@@ -141,6 +153,18 @@ def info_clientes(id_humano):
     except:
         False
 
+def info_consulta(id_cliente):
+    try: 
+        conn = sqlite3.connect('petshop.db')
+        cursor = conn.cursor()
+        sql_select = f'SELECT * FROM agendamento WHERE id_cliente = "{id_cliente}"'
+        cursor.execute(sql_select)
+        consulta = cursor.fetchall()
+        conn.close()
+        return consulta
+    except:
+        False
+
 def tipoPet(id_pet):
     try: 
         conn = sqlite3.connect('petshop.db')
@@ -152,6 +176,83 @@ def tipoPet(id_pet):
         return idAnimal
     except:
         False
+
+def servico(id_servico):
+    try: 
+        conn = sqlite3.connect('petshop.db')
+        cursor = conn.cursor()
+        sql_select = f'SELECT * FROM servicos WHERE id_servico = "{id_servico}"'
+        cursor.execute(sql_select)
+        servico = cursor.fetchall()
+        conn.close()
+        return servico
+    except:
+        False
+
+def excluir_consulta(id_consulta):
+    try: 
+        conn = sqlite3.connect('petshop.db')
+        cursor = conn.cursor()
+        sql_select = f'DELETE from agendamento WHERE id_agendamento = "{id_consulta}"'
+        cursor.execute(sql_select)
+        conn.commit()
+        conn.close()
+        return True
+    except Exception as ex:
+        print(ex)
+        return False
+
+def excluir_pet(id_pet):
+    try: 
+        conn = sqlite3.connect('petshop.db')
+        cursor = conn.cursor()
+        sql_select = f'DELETE from clientes WHERE id_cliente = "{id_pet}"'
+        cursor.execute(sql_select)
+        conn.commit()
+        conn.close()
+        return True
+    except Exception as ex:
+        print(ex)
+        return False
+
+def excluir_conta(id_humano):
+    try: 
+        conn = sqlite3.connect('petshop.db')
+        cursor = conn.cursor()
+        sql_select = f'DELETE from humano WHERE id_humano = "{id_humano}"'
+        cursor.execute(sql_select)
+        conn.commit()
+        conn.close()
+        return True
+    except Exception as ex:
+        print(ex)
+        return False
+
+def alterar_dados(nome, cpf, email, contato, endereco, senha, id):
+    try:
+        conn = sqlite3.connect('petshop.db')
+        cursor = conn.cursor()
+        sql_update = "UPDATE humano SET nome_humano = ?, cpf_humano = ?, email_humano = ?, contato_humano = ?, endereco_humano = ?, senha_humano = ?  WHERE id_humano = ?"
+        cursor.execute(sql_update, (nome, cpf, email, contato, endereco, senha, id))
+        conn.commit()
+        conn.close()
+        return True
+    except Exception as ex:
+        print(ex)
+        return False
+
+def adicionar_pet(nome_cliente, id_animal, id_humano):
+    try:
+        conn = sqlite3.connect('petshop.db')
+        cursor = conn.cursor()
+        sql_insert_cliente = f'INSERT INTO clientes (nome_cliente, id_animal, id_humano) VALUES ("{nome_cliente}", {id_animal}, {id_humano})'
+        cursor.execute(sql_insert_cliente)
+        conn.commit()
+        conn.close()
+        msg = "Dados gravados com sucesso"
+    except:
+        msg = "Erro ao inserir os dados"
+    return msg
 
         
 

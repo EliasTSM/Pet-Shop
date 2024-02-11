@@ -99,10 +99,73 @@ def agendamento(servico):
 
 @app.route("/perfil", methods = ["GET", "POST"])
 def perfil():
-    info = rep.verificacao(current_user.id)
-
-    return render_template ('perfil.html')
-
+    if request.method == "POST":
+        nome = request.form["nome"]
+        email = request.form["email"]
+        cpf = request.form["cpf"]
+        celular = request.form["celular"]
+        endereco = request.form["endereco"]
+        senha = request.form["senha"]
+        rep.alterar_dados(nome, cpf, email, celular, endereco, senha, current_user.id)
+        info = rep.verificacao(current_user.id)
+        pets = rep.info_clientes(current_user.id)
+        todasConsultas = []
+        for pet in pets:
+            consultas = rep.info_consulta(pet[0])
+            for consulta in consultas:
+                profissional = rep.profissional_consulta(consulta[3])
+                servico = rep.servico(consulta[5])
+                infoConsulta = (consulta[0], pet[1], profissional[0][1], servico[0][1], consulta[1], consulta[2])
+                todasConsultas.append(infoConsulta)
+        flash("Dados atualizados com sucesso.")
+        return render_template ('perfil.html', pets = pets, consultas = todasConsultas)
+    else:
+        info = rep.verificacao(current_user.id)
+        pets = rep.info_clientes(current_user.id)
+        todasConsultas = []
+        for pet in pets:
+            consultas = rep.info_consulta(pet[0])
+            for consulta in consultas:
+                profissional = rep.profissional_consulta(consulta[3])
+                servico = rep.servico(consulta[5])
+                infoConsulta = (consulta[0], pet[1], profissional[0][1], servico[0][1], consulta[1], consulta[2])
+                todasConsultas.append(infoConsulta)
+        return render_template ('perfil.html', pets = pets, consultas = todasConsultas)
+    
+@app.route("/delete/<tabela>/<id>", methods = ["GET", "POST"])
+def deletar(tabela, id):
+    if tabela == "consulta":
+        rep.excluir_consulta(id)
+        info = rep.verificacao(current_user.id)
+        pets = rep.info_clientes(current_user.id)
+        todasConsultas = []
+        for pet in pets:
+            consultas = rep.info_consulta(pet[0])
+            for consulta in consultas:
+                profissional = rep.profissional_consulta(consulta[3])
+                servico = rep.servico(consulta[5])
+                infoConsulta = (consulta[0], pet[1], profissional[0][1], servico[0][1], consulta[1], consulta[2])
+                todasConsultas.append(infoConsulta)
+        flash("Consulta desmarcada com sucesso.")
+        return redirect(url_for('perfil', pets = pets, consultas = todasConsultas))
+    elif tabela == "pet":
+        rep.excluir_pet(id)
+        info = rep.verificacao(current_user.id)
+        pets = rep.info_clientes(current_user.id)
+        todasConsultas = []
+        for pet in pets:
+            consultas = rep.info_consulta(pet[0])
+            for consulta in consultas:
+                profissional = rep.profissional_consulta(consulta[3])
+                servico = rep.servico(consulta[5])
+                infoConsulta = (consulta[0], pet[1], profissional[0][1], servico[0][1], consulta[1], consulta[2])
+                todasConsultas.append(infoConsulta)
+        flash("Pet deletado com sucesso.")
+        return redirect(url_for('perfil', pets = pets, consultas = todasConsultas))
+    else:
+        rep.excluir_conta(id)
+        flash("Conta deletado com sucesso.")
+        return redirect(url_for('cadastro'))
 
 @app.route("/compra/<idProduto>")
 def compra(idProduto):
