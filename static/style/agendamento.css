@@ -297,6 +297,7 @@ button {
 .button-left {
     padding: 4%;
     background-color: #FFCF00;
+    cursor: pointer;
 }
 
 form {

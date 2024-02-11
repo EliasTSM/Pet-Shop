@@ -101,7 +101,7 @@
         <section class="conteudo">
             <div class="info-esquerda">
                 <div class="box-login">
-                    <form>
+                    <form method="post">
                         <label for="nome">Nome</label>
                         <input type="text" id="nome" name="nome" value="{{current_user.nome_humano}}" placeholder="Digite seu nome completo">
                         <label for="cpf">CPF</label>
@@ -139,7 +139,27 @@
                             {% endfor %}
                             {% endif %}
                         </table>
-                        <a href="#" class="add-left">Adicionar um novo Pet</a>
+                        <button class="add-left">Adicionar um novo Pet</button>
+                        <dialog>
+                            <div>
+                                <form action="/savePet" method="POST">
+                                    <label for="pet">Qual o seu pet:</label>
+                                    <select id="pet" name="petModal" required>
+                                        <option value="">Selecione uma opção</option>
+                                        <option value="1">Cachorro</option>
+                                        <option value="2">Gato</option>
+                                        <option value="4">Pássaro</option>
+                                        <option value="3">Hamster</option>
+                                        <option value="5">Porco da India</option>
+                                        <option value="6">Peixe</option>
+                                    </select>
+                                    <label for="nomePet">Qual o nome do seu pet:</label>
+                                    <input type="text" id="nomePet" name="nomePetModal" placeholder="Nome do pet" required>
+                                    <input type="submit" value="Salvar" class="salvar-modal">
+                                    <a href="/perfil" class="cancelar-modal">Cancelar</a>
+                                </form>
+                            </div>
+                        </dialog>
                     </div>
                     <div class="Consultas">
                         <table class="tabela-consulta">

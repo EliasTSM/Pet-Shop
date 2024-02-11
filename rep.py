@@ -123,9 +123,21 @@ def agendamento(data,horario,id_profissional,id_cliente,id_servico):
         conn.commit()
         conn.close()
         msg = "Dados gravados com sucesso"
+        print(data)
+        print(horario)
+        print(id_profissional)
+        print(id_cliente)
+        print(id_servico)
+        print(msg)
         return msg
     except:
         msg = "Erro ao inserir os dados"
+        print(data)
+        print(horario)
+        print(id_profissional)
+        print(id_cliente)
+        print(id_servico)
+        print(msg)
         return msg
 
 def tipoServico(tipo_servico, id_animal):
@@ -206,8 +218,10 @@ def excluir_pet(id_pet):
     try: 
         conn = sqlite3.connect('petshop.db')
         cursor = conn.cursor()
-        sql_select = f'DELETE from clientes WHERE id_cliente = "{id_pet}"'
-        cursor.execute(sql_select)
+        sql_select1 = f'DELETE from agendamento WHERE id_cliente = "{id_pet}"'
+        cursor.execute(sql_select1)
+        sql_select2 = f'DELETE from clientes WHERE id_cliente = "{id_pet}"'
+        cursor.execute(sql_select2)
         conn.commit()
         conn.close()
         return True
@@ -219,8 +233,14 @@ def excluir_conta(id_humano):
     try: 
         conn = sqlite3.connect('petshop.db')
         cursor = conn.cursor()
-        sql_select = f'DELETE from humano WHERE id_humano = "{id_humano}"'
-        cursor.execute(sql_select)
+        pets = info_clientes(id_humano)
+        for pet in pets:
+            sql_select1 = f'DELETE from agendamento WHERE id_cliente = "{pet[0]}"'
+            cursor.execute(sql_select1)
+            sql_select2 = f'DELETE from clientes WHERE id_cliente = "{pet[0]}"'
+            cursor.execute(sql_select2)
+        sql_select3 = f'DELETE from humano WHERE id_humano = "{id_humano}"'
+        cursor.execute(sql_select3)
         conn.commit()
         conn.close()
         return True
@@ -228,12 +248,12 @@ def excluir_conta(id_humano):
         print(ex)
         return False
 
-def alterar_dados(nome, cpf, email, contato, endereco, senha, id):
+def alterar_dados(nome, email, contato, endereco, senha, id):
     try:
         conn = sqlite3.connect('petshop.db')
         cursor = conn.cursor()
-        sql_update = "UPDATE humano SET nome_humano = ?, cpf_humano = ?, email_humano = ?, contato_humano = ?, endereco_humano = ?, senha_humano = ?  WHERE id_humano = ?"
-        cursor.execute(sql_update, (nome, cpf, email, contato, endereco, senha, id))
+        sql_update = "UPDATE humano SET nome_humano = ?, email_humano = ?, contato_humano = ?, endereco_humano = ?, senha = ?  WHERE id_humano = ?"
+        cursor.execute(sql_update, (nome, email, contato, endereco, senha, id))
         conn.commit()
         conn.close()
         return True

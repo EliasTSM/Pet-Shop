@@ -12,3 +12,10 @@ function mostarSenha() {
         btnShowPwd.classList.replace('fa-eye-slash', 'fa-eye')
     }
 }
+
+const abrirModal = document.querySelector(".add-left")
+const modal = document.querySelector("dialog")
+
+abrirModal.onclick = function (){
+    modal.showModal()
+}

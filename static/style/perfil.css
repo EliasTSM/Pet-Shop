@@ -390,6 +390,64 @@ td {
     width: 24%;
 }
 
+dialog{
+    margin-top: 15%;
+    margin-left: 40%;
+}
+
+dialog input{
+    width: 100%;
+}
+
+dialog div{
+    padding: 5%;
+}
+
+.salvar-pet {
+    background-color: #FFCF00;
+}
+
+dialog::backdrop{
+    background-color: #00000096;
+}
+
+.salvar-modal {
+    padding: 2%;
+    background-color: #FFCF00;
+    text-decoration: none;
+    width: 95%;
+    height: 15%;
+    margin-top: 3%;
+    margin-left: 1.5%;
+    font-size: 110%;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.cancelar-modal {
+    padding: 2%;
+    background-color: black;
+    text-decoration: none;
+    width: 95%;
+    height: 15%;
+    margin-top: 3%;
+    margin-left: 1.5%;
+    font-size: 110%;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F5F0F0;
+    font-family: 'Roboto', sans-serif;
+}
+
 .add-left {
     background-color: #FFCF00;
     cursor: pointer;
