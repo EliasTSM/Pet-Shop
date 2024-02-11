@@ -393,6 +393,20 @@ td {
 .add-left {
     background-color: #FFCF00;
     cursor: pointer;
+    padding: 4% 0%;
+    text-decoration: none;
+    width: 95%;
+    height: 15%;
+    margin-top: 5%;
+    font-size: 110%;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    border: 1px solid black;
 }
 
 td i {
